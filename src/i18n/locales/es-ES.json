@@ -130,10 +130,14 @@
     "proficiency": "Dominio",
     "fullstack": "Desarrollo Full-Stack",
     "architecture": "Arquitectura de Sistemas",
+    "devops": "DevOps & Cloud",
     "distributed": "Sistemas Distribuidos",
+    "frontendFocus": "Frontend & UI/UX",
+    "integrations": "Integraciones & APIs",
     "languages": "Lenguajes",
     "frontend": "Frontend",
-    "backend": "Backend"
+    "backend": "Backend",
+    "dataInfra": "Datos & Infra"
   },
   "testimonial": {
     "eyebrow": "Referencias",

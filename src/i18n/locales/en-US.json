@@ -103,19 +103,19 @@
       "period": "2022 — Present",
       "role": "Founder & Software Engineer",
       "company": "Febraio Tecnologia",
-      "description": "Founded and lead Febraio Tecnologia, building robust digital products across multiple industries. Responsible for architecture, full-stack development, and technical value at scale."
+      "description": "Founded and lead Febraio Tecnologia, building robust digital products for clients across multiple industries. Responsible for architecture, full-stack development, and delivering consistent technical value at scale."
     },
     "senior": {
       "period": "2020 — 2022",
       "role": "Senior Software Engineer",
       "company": "Tech Startup",
-      "description": "Developed high-performance APIs and scalable systems. Led migrations that reduced operational costs by 35% and average latency by 60%."
+      "description": "Developed high-performance APIs and scalable web systems. Led critical infrastructure migrations that reduced operational costs by 35% and improved average latency by 60%."
     },
     "fullstack": {
       "period": "2018 — 2020",
       "role": "Full-Stack Developer",
       "company": "Digital Agency",
-      "description": "Delivered end-to-end web solutions for enterprise clients, from conception through deployment, with measurable impact on conversion and retention."
+      "description": "Delivered end-to-end web solutions for enterprise clients, from conception through deployment. Directly responsible for projects with measurable impact on user conversion and retention."
     },
     "freelance": {
       "period": "2016 — 2018",
@@ -130,15 +130,19 @@
     "proficiency": "Proficiency",
     "fullstack": "Full-Stack Development",
     "architecture": "Systems Architecture",
+    "devops": "DevOps & Cloud",
     "distributed": "Distributed Systems",
+    "frontendFocus": "Frontend & UI/UX",
+    "integrations": "Integrations & APIs",
     "languages": "Languages",
     "frontend": "Frontend",
-    "backend": "Backend"
+    "backend": "Backend",
+    "dataInfra": "Data & Infra"
   },
   "testimonial": {
     "eyebrow": "References",
     "title": "What They Say",
-    "quote": "The architecture Jonathan designed processed millions of transactions without a single incident. Jonathan is a benchmark professional in software engineering.",
+    "quote": "Febraio Tecnologia delivered a system that has processed millions of transactions without a single incident. Jonathan is a benchmark professional in software engineering.",
     "name": "Ana Lima",
     "role": "Head of Engineering at TechBR"
   },
@@ -150,21 +154,21 @@
       "category": "Architecture",
       "date": "Mar 2024",
       "title": "Why I rewrote our entire API in strict TypeScript",
-      "description": "A practical deep dive into migrating a legacy JS codebase to TypeScript strict, including tradeoffs, surprises and results.",
+      "description": "A practical deep dive into migrating a legacy JS codebase to TypeScript with strict mode — the tradeoffs, the surprises, and whether it was worth it.",
       "duration": "10 min"
     },
     "consistency": {
       "category": "Distributed Systems",
       "date": "Jan 2024",
       "title": "Eventual consistency in practice: beyond CRDT theory",
-      "description": "Vector clocks, merge functions, and the bugs that only show up at 3am in production.",
+      "description": "Most tutorials skip the hard parts. This one covers vector clocks, merge functions, and the bugs that only show up at 3am in production.",
       "duration": "15 min"
     },
     "coldstart": {
       "category": "Edge Computing",
       "date": "Nov 2023",
       "title": "The cold start problem is actually three problems",
-      "description": "Separating V8 initialization, module graph resolution and network warm-up as independent levers.",
+      "description": "Separating V8 isolate initialization, module graph resolution, and network warm-up as independent levers you can pull separately.",
       "duration": "8 min"
     }
   },

@@ -110,10 +110,28 @@ export const portfolioData: PortfolioData = {
       proficiency: 90,
     },
     {
+      id: 'devops',
+      titleKey: 'skills.devops',
+      skills: ['Docker', 'AWS', 'CI/CD', 'Observability'],
+      proficiency: 84,
+    },
+    {
       id: 'distributed',
       titleKey: 'skills.distributed',
       skills: ['PostgreSQL', 'Redis', 'Docker', 'AWS'],
       proficiency: 87,
+    },
+    {
+      id: 'frontendFocus',
+      titleKey: 'skills.frontendFocus',
+      skills: ['React', 'Design Systems', 'Accessibility', 'Motion'],
+      proficiency: 88,
+    },
+    {
+      id: 'integrations',
+      titleKey: 'skills.integrations',
+      skills: ['REST', 'GraphQL', 'Webhooks', 'Payments'],
+      proficiency: 93,
     },
   ],
   articles: [

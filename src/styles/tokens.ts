@@ -12,6 +12,12 @@ export const tokens = {
       strong: '#2563EB',
       soft: '#8EC5FF',
       cyan: '#00D492',
+      teal: '#06B6D4',
+      green: '#10B981',
+      orange: '#F59E0B',
+      violet: '#8B5CF6',
+      blueSurface: 'rgba(43,127,255,0.10)',
+      blueBorder: 'rgba(43,127,255,0.20)',
       cyanSurface: 'rgba(0,212,146,0.08)',
       cyanBorder: 'rgba(0,212,146,0.20)',
       indigo: '#6366F1',
@@ -33,6 +39,8 @@ export const tokens = {
   gradients: {
     page: 'linear-gradient(180deg, #020617 0%, #020617 100%)',
     hero: 'linear-gradient(180deg, rgba(2,6,23,0.12) 0%, rgba(2,6,23,0.58) 72%, #020617 100%)',
+    heroFallback:
+      'radial-gradient(circle at 72% 18%, rgba(37,99,235,0.36), transparent 34%), radial-gradient(circle at 24% 72%, rgba(0,212,146,0.16), transparent 30%), linear-gradient(135deg, #020617 0%, #08111f 45%, #020617 100%)',
     glass: 'linear-gradient(135deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018))',
     glassHighlight: 'linear-gradient(135deg, rgba(59,130,246,0.11), rgba(99,102,241,0.025))',
     accent: 'linear-gradient(90deg, #60A5FA 0%, #818CF8 100%)',
@@ -53,6 +61,8 @@ export const tokens = {
     },
     size: {
       xs: '0.75rem',
+      xxs: '0.625rem',
+      tag: '0.6875rem',
       sm: '0.875rem',
       md: '1rem',
       lg: '1.125rem',

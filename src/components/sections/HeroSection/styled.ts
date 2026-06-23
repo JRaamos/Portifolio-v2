@@ -11,7 +11,7 @@ export const HeroRoot = styled.section`
 export const HeroBackground = styled.div`
   position: absolute;
   inset: 0;
-  background-image: ${({ theme }) => `${theme.gradients.hero},url('${theme.assets.hero}')`};
+  background-image: ${({ theme }) => `${theme.gradients.hero}, ${theme.gradients.heroFallback}`};
   background-size: cover;
   background-position: center top;
   opacity: 0.95;

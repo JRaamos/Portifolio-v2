@@ -130,10 +130,14 @@
     "proficiency": "Proficiência",
     "fullstack": "Desenvolvimento Full-Stack",
     "architecture": "Arquitetura de Sistemas",
+    "devops": "DevOps & Cloud",
     "distributed": "Sistemas Distribuídos",
+    "frontendFocus": "Frontend & UI/UX",
+    "integrations": "Integrações & APIs",
     "languages": "Linguagens",
     "frontend": "Frontend",
-    "backend": "Backend"
+    "backend": "Backend",
+    "dataInfra": "Dados & Infra"
   },
   "testimonial": {
     "eyebrow": "Referências",
