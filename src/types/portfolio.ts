@@ -5,34 +5,41 @@ export interface SocialLink {
   labelKey: TranslationKey;
   url: string;
 }
-
 export interface SkillGroup {
   id: string;
   titleKey: TranslationKey;
   skills: string[];
+  proficiency?: number;
 }
-
 export interface Project {
   id: string;
-  index: string;
+  categoryKey: TranslationKey;
   titleKey: TranslationKey;
   descriptionKey: TranslationKey;
-  impactKey: TranslationKey;
   tags: string[];
-  url: string;
+  visual: 'blue' | 'indigo' | 'green' | 'red' | 'amber' | 'cyan';
+  featured?: boolean;
 }
-
 export interface Experience {
   id: string;
   periodKey: TranslationKey;
   roleKey: TranslationKey;
   companyKey: TranslationKey;
   descriptionKey: TranslationKey;
+  tags: string[];
 }
-
+export interface Article {
+  id: string;
+  categoryKey: TranslationKey;
+  dateKey: TranslationKey;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  durationKey: TranslationKey;
+}
 export interface PortfolioData {
   socialLinks: SocialLink[];
   skillGroups: SkillGroup[];
   projects: Project[];
   experiences: Experience[];
+  articles: Article[];
 }

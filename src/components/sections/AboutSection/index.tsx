@@ -2,32 +2,41 @@ import { useTranslation } from 'react-i18next';
 import { Container } from '../../layout/Container';
 import { Section } from '../../layout/Section';
 import { Badge } from '../../ui/Badge';
-import { AboutGrid, Copy, Lead, Stat, Stats, Title } from './styled';
+import { AboutGrid, Bio, Facts, Portrait, Title } from './styled';
 
 export function AboutSection() {
   const { t } = useTranslation();
-  const stats = ['years', 'projects', 'quality'] as const;
-
+  const facts = ['philosophy', 'specialty', 'focus', 'company'] as const;
   return (
     <Section id="about" labelledBy="about-title">
       <Container>
         <AboutGrid>
-          <div>
+          <Portrait>
+            <img
+              src="http://localhost:3845/assets/2916980f579b2d3daadae284c6920494b07c28ac.png"
+              alt={t('brand.name')}
+              loading="lazy"
+            />
+            <span>{t('about.companyValue')}</span>
+            <small>{t('about.location')}</small>
+          </Portrait>
+          <Bio>
             <Badge>{t('about.eyebrow')}</Badge>
-            <Title id="about-title">{t('about.title')}</Title>
-          </div>
-          <Copy>
-            <Lead>{t('about.lead')}</Lead>
-            <p>{t('about.body')}</p>
-            <Stats>
-              {stats.map((stat) => (
-                <Stat key={stat}>
-                  <strong>{t(`about.stats.${stat}Value`)}</strong>
-                  <span>{t(`about.stats.${stat}Label`)}</span>
-                </Stat>
+            <Title id="about-title">
+              {t('about.titlePrefix')}
+              <span>{t('about.titleAccent')}</span>
+            </Title>
+            <p>{t('about.bodyOne')}</p>
+            <p>{t('about.bodyTwo')}</p>
+            <Facts>
+              {facts.map((fact) => (
+                <div key={fact}>
+                  <span>{t(`about.${fact}Label`)}</span>
+                  <strong>{t(`about.${fact}Value`)}</strong>
+                </div>
               ))}
-            </Stats>
-          </Copy>
+            </Facts>
+          </Bio>
         </AboutGrid>
       </Container>
     </Section>

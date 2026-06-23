@@ -1,52 +1,62 @@
 import { useTranslation } from 'react-i18next';
-import { GlassButton } from '../../glass/GlassButton';
 import { Button } from '../../ui/Button';
-import { Badge } from '../../ui/Badge';
 import {
-  Actions,
-  AmbientOrb,
+  HeroBackground,
   HeroContent,
+  HeroMeta,
   HeroRoot,
   HeroTitle,
   Intro,
+  Role,
   ScrollCue,
-  VisualCore,
-  VisualRing,
+  Socials,
+  Status,
 } from './styled';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
 }
-
 export function HeroSection({ onNavigate }: HeroSectionProps) {
   const { t } = useTranslation();
-
   return (
     <HeroRoot id="home" aria-labelledby="hero-title">
-      <AmbientOrb />
+      <HeroBackground aria-hidden="true" />
       <HeroContent>
         <Intro>
-          <Badge>{t('hero.eyebrow')}</Badge>
+          <HeroMeta>
+            <Status>
+              <i />
+              {t('hero.eyebrow')}
+            </Status>
+            <span>{t('hero.location')}</span>
+          </HeroMeta>
           <HeroTitle id="hero-title">
-            {t('hero.titlePrefix')} <em>{t('hero.titleAccent')}</em> {t('hero.titleSuffix')}
+            <span>{t('hero.firstName')}</span>
+            <span>{t('hero.lastName')}</span>
           </HeroTitle>
+          <Role>{t('hero.role')}</Role>
           <p>{t('hero.description')}</p>
-          <Actions>
+          <div>
             <Button type="button" onClick={() => onNavigate('projects')}>
               {t('hero.primaryAction')} <span aria-hidden="true">↗</span>
             </Button>
-            <GlassButton type="button" onClick={() => onNavigate('contact')}>
-              {t('hero.secondaryAction')}
-            </GlassButton>
-          </Actions>
+            <Socials>
+              <a href="https://github.com/jonathanfebraio" target="_blank" rel="noreferrer">
+                GH
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jonathanfebraio/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                IN
+              </a>
+            </Socials>
+          </div>
         </Intro>
-
-        <VisualCore aria-hidden="true">
-          <VisualRing />
-          <span>JF</span>
-        </VisualCore>
-        <ScrollCue type="button" onClick={() => onNavigate('about')}>
-          {t('hero.scroll')} <span aria-hidden="true">↓</span>
+        <ScrollCue type="button" onClick={() => onNavigate('projects')}>
+          {t('hero.scroll')}
+          <span aria-hidden="true">↓</span>
         </ScrollCue>
       </HeroContent>
     </HeroRoot>

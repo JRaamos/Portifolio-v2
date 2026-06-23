@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  body:has([role='dialog']) { overflow: hidden; }
+
   button, select, a { font: inherit; }
   button, select { color: inherit; }
   button { border: 0; }

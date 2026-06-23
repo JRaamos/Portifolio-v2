@@ -1,56 +1,56 @@
 import { useTranslation } from 'react-i18next';
 import type { Project } from '../../../types/portfolio';
-import { GlassCard } from '../../glass/GlassCard';
 import { Container } from '../../layout/Container';
 import { Section } from '../../layout/Section';
 import { Badge } from '../../ui/Badge';
 import {
-  ProjectContent,
-  ProjectLink,
-  ProjectList,
-  ProjectMeta,
+  CardActions,
+  ProjectCard,
+  ProjectGrid,
   ProjectVisual,
   ProjectsHeader,
+  TagList,
   Title,
 } from './styled';
 
 interface ProjectsSectionProps {
   projects: Project[];
+  onSelectProject: (project: Project) => void;
 }
-
-export function ProjectsSection({ projects }: ProjectsSectionProps) {
+export function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
   const { t } = useTranslation();
-
   return (
     <Section id="projects" labelledBy="projects-title">
       <Container>
         <ProjectsHeader>
           <Badge>{t('projects.eyebrow')}</Badge>
           <Title id="projects-title">{t('projects.title')}</Title>
+          <p>{t('projects.description')}</p>
         </ProjectsHeader>
-        <ProjectList>
+        <ProjectGrid>
           {projects.map((project) => (
-            <GlassCard key={project.id}>
+            <ProjectCard key={project.id} $visual={project.visual}>
               <ProjectVisual aria-hidden="true">
-                <span>{project.index}</span>
+                <span />
+                <span />
                 <strong>{t(project.titleKey).slice(0, 1)}</strong>
               </ProjectVisual>
-              <ProjectContent>
-                <ProjectMeta>{t(project.impactKey)}</ProjectMeta>
-                <h3>{t(project.titleKey)}</h3>
-                <p>{t(project.descriptionKey)}</p>
-                <div>
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-                <ProjectLink href={project.url} target="_blank" rel="noreferrer">
-                  {t('projects.visit')} <span aria-hidden="true">↗</span>
-                </ProjectLink>
-              </ProjectContent>
-            </GlassCard>
+              <small>{t(project.categoryKey)}</small>
+              <h3>{t(project.titleKey)}</h3>
+              <p>{t(project.descriptionKey)}</p>
+              <TagList>
+                {project.tags.slice(0, 4).map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </TagList>
+              <CardActions>
+                <button type="button" onClick={() => onSelectProject(project)}>
+                  {t('projects.viewProject')}
+                </button>
+              </CardActions>
+            </ProjectCard>
           ))}
-        </ProjectList>
+        </ProjectGrid>
       </Container>
     </Section>
   );

@@ -1,94 +1,204 @@
 {
-  "brand": { "name": "Jonathan Febraio", "role": "Frontend Developer" },
+  "brand": {
+    "name": "Febraio",
+    "company": "Tecnologia",
+    "monogram": "FT",
+    "role": "Software Engineer"
+  },
   "navigation": {
+    "label": "Main navigation",
     "about": "About",
-    "skills": "Skills",
     "projects": "Projects",
     "experience": "Experience",
+    "writing": "Writing",
     "contact": "Contact",
+    "getInTouch": "Get in touch",
     "menuOpen": "Open menu",
     "menuClose": "Close menu"
   },
-  "language": {
-    "label": "Select language",
-    "pt-BR": "Português",
-    "en-US": "English",
-    "es-ES": "Español"
-  },
+  "language": { "label": "Select language", "pt-BR": "PT", "en-US": "EN", "es-ES": "ES" },
   "hero": {
-    "eyebrow": "Available for new projects",
-    "titlePrefix": "I design",
-    "titleAccent": "digital experiences",
-    "titleSuffix": "that leave a mark.",
-    "description": "Frontend with product thinking, solid code and an obsession with the details that turn interfaces into experiences.",
+    "eyebrow": "Open to new opportunities",
+    "location": "Brazil",
+    "firstName": "Jonathan",
+    "lastName": "Febraio.",
+    "role": "Software Engineer",
+    "description": "Founder of Febraio Tecnologia. I build robust systems and digital experiences that deliver real value — with precision, performance, and purpose.",
     "primaryAction": "View projects",
-    "secondaryAction": "Talk to me",
-    "scroll": "Explore portfolio"
+    "scroll": "Scroll"
   },
-  "about": {
-    "eyebrow": "About me",
-    "title": "Clarity in product. Precision in code.",
-    "lead": "I turn complex problems into simple, fast and accessible experiences.",
-    "body": "I work at the intersection of design and engineering, building interfaces that communicate clearly and scale confidently. Every visual decision needs a reason; every line of code, a purpose.",
-    "stats": {
-      "yearsValue": "4+",
-      "yearsLabel": "years building products",
-      "projectsValue": "18",
-      "projectsLabel": "projects delivered",
-      "qualityValue": "100%",
-      "qualityLabel": "focused on quality"
-    }
-  },
-  "skills": {
-    "eyebrow": "Stack and craft",
-    "title": "Tools are means. Outcomes are the point.",
-    "description": "A modern foundation for fast, sustainable digital products that feel good to use.",
-    "frontend": "Frontend",
-    "architecture": "Architecture",
-    "quality": "Quality"
+  "stats": {
+    "yearsValue": "8+",
+    "yearsLabel": "Years of experience",
+    "projectsValue": "60+",
+    "projectsLabel": "Projects delivered",
+    "clientsValue": "30+",
+    "clientsLabel": "Clients served",
+    "starsValue": "4.200+",
+    "starsLabel": "GitHub stars"
   },
   "projects": {
     "eyebrow": "Selected work",
-    "title": "Projects with intention and impact.",
-    "visit": "View project",
-    "aurora": {
-      "title": "Aurora Finance",
-      "description": "A financial experience that turns dense data into clear decisions.",
-      "impact": "Design system · Dashboard · Performance"
+    "title": "Featured Projects",
+    "description": "A selection of systems architected, built, and shipped to production.",
+    "viewProject": "View project",
+    "live": "Live demo",
+    "source": "Source",
+    "nexus": {
+      "category": "Real-time infrastructure",
+      "title": "Nexus",
+      "description": "Massively scalable collaboration platform supporting 50k+ concurrent users with sub-50ms latency."
     },
-    "atlas": {
-      "title": "Atlas Commerce",
-      "description": "A modular shopping journey built to grow without compromising speed.",
-      "impact": "E-commerce · Conversion · Accessibility"
+    "orbital": {
+      "category": "AI / Developer tools",
+      "title": "Orbital",
+      "description": "AI-powered code review assistant that detects anti-patterns, security flaws and performance bottlenecks."
     },
-    "nexo": {
-      "title": "Nexo Health",
-      "description": "A care platform connecting people, professionals and information.",
-      "impact": "Digital product · UX · Frontend"
+    "vanta": {
+      "category": "Data",
+      "title": "Vanta",
+      "description": "High-performance analytics dashboard for enterprise e-commerce with ML inventory forecasting and real-time data."
+    },
+    "helix": {
+      "category": "Open source / DevTools",
+      "title": "Helix",
+      "description": "Open-source terminal multiplexer with AI autocomplete, a unified Rust core and WASM compilation."
+    },
+    "flare": {
+      "category": "Edge Computing",
+      "title": "Flare",
+      "description": "Lightweight serverless runtime for JS/WASM functions with sub-2ms cold starts for latency-critical uses."
+    },
+    "prism": {
+      "category": "DevOps / Cloud",
+      "title": "Prism",
+      "description": "Live multi-cloud topology map with auto-discovery, dependency graphs and real-time health overlays."
     }
   },
+  "about": {
+    "eyebrow": "About me",
+    "titlePrefix": "Engineering",
+    "titleAccent": "with purpose.",
+    "bodyOne": "I'm Jonathan Febraio, Software Engineer and founder of Febraio Tecnologia. Specialized in robust web systems, high-performance APIs, and digital products that make a real difference.",
+    "bodyTwo": "I believe the best technology solves real problems with elegance — clean code, solid architecture, and consistent delivery. From concept to deployment, every detail is part of a larger product.",
+    "philosophyLabel": "Philosophy",
+    "philosophyValue": "Build with purpose",
+    "specialtyLabel": "Specialty",
+    "specialtyValue": "Robust web systems",
+    "focusLabel": "Focus",
+    "focusValue": "Performance and scale",
+    "companyLabel": "Company",
+    "companyValue": "Febraio Tecnologia",
+    "location": "Brazil"
+  },
+  "quote": {
+    "first": "The measure of a good architecture is",
+    "second": "how long it takes",
+    "accent": "to forget it's there."
+  },
   "experience": {
-    "eyebrow": "Experience",
-    "title": "Building products, evolving systems.",
-    "currentPeriod": "2024 — now",
-    "currentRole": "Frontend Engineer",
-    "currentCompany": "Digital product",
-    "currentDescription": "Building web experiences, evolving design systems and partnering closely with product and design.",
-    "previousPeriod": "2022 — 2024",
-    "previousRole": "Frontend Developer",
-    "previousCompany": "Technology consultancy",
-    "previousDescription": "Delivery of responsive applications, service integrations and continuous user experience improvement."
+    "eyebrow": "Career",
+    "title": "Work History",
+    "founder": {
+      "period": "2022 — Present",
+      "role": "Founder & Software Engineer",
+      "company": "Febraio Tecnologia",
+      "description": "Founded and lead Febraio Tecnologia, building robust digital products across multiple industries. Responsible for architecture, full-stack development, and technical value at scale."
+    },
+    "senior": {
+      "period": "2020 — 2022",
+      "role": "Senior Software Engineer",
+      "company": "Tech Startup",
+      "description": "Developed high-performance APIs and scalable systems. Led migrations that reduced operational costs by 35% and average latency by 60%."
+    },
+    "fullstack": {
+      "period": "2018 — 2020",
+      "role": "Full-Stack Developer",
+      "company": "Digital Agency",
+      "description": "Delivered end-to-end web solutions for enterprise clients, from conception through deployment, with measurable impact on conversion and retention."
+    },
+    "freelance": {
+      "period": "2016 — 2018",
+      "role": "Web Developer",
+      "company": "Freelance",
+      "description": "Built systems and websites for small and medium businesses, combining product development, UI/UX, and client relationships."
+    }
+  },
+  "skills": {
+    "eyebrow": "Capabilities",
+    "title": "Technical Arsenal",
+    "proficiency": "Proficiency",
+    "fullstack": "Full-Stack Development",
+    "architecture": "Systems Architecture",
+    "distributed": "Distributed Systems",
+    "languages": "Languages",
+    "frontend": "Frontend",
+    "backend": "Backend"
+  },
+  "testimonial": {
+    "eyebrow": "References",
+    "title": "What They Say",
+    "quote": "The architecture Jonathan designed processed millions of transactions without a single incident. Jonathan is a benchmark professional in software engineering.",
+    "name": "Ana Lima",
+    "role": "Head of Engineering at TechBR"
+  },
+  "writing": {
+    "eyebrow": "Articles",
+    "title": "Technical Writing",
+    "all": "All articles",
+    "typescript": {
+      "category": "Architecture",
+      "date": "Mar 2024",
+      "title": "Why I rewrote our entire API in strict TypeScript",
+      "description": "A practical deep dive into migrating a legacy JS codebase to TypeScript strict, including tradeoffs, surprises and results.",
+      "duration": "10 min"
+    },
+    "consistency": {
+      "category": "Distributed Systems",
+      "date": "Jan 2024",
+      "title": "Eventual consistency in practice: beyond CRDT theory",
+      "description": "Vector clocks, merge functions, and the bugs that only show up at 3am in production.",
+      "duration": "15 min"
+    },
+    "coldstart": {
+      "category": "Edge Computing",
+      "date": "Nov 2023",
+      "title": "The cold start problem is actually three problems",
+      "description": "Separating V8 initialization, module graph resolution and network warm-up as independent levers.",
+      "duration": "8 min"
+    }
   },
   "contact": {
-    "eyebrow": "Let's talk",
-    "title": "Have a good idea? Let's make it real.",
-    "description": "I am open to projects, opportunities and conversations about thoughtfully built digital products.",
-    "emailAction": "Send an email",
+    "eyebrow": "Contact",
+    "titlePrefix": "Let's build",
+    "titleAccent": "something extraordinary.",
+    "description": "Open to projects, partnerships, and new opportunities. If you have an interesting technical challenge or want to build something meaningful, let's talk.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "message": "What are you building?",
+    "messagePlaceholder": "Tell me about the project...",
+    "send": "Send message",
     "socialLabel": "Other channels"
   },
-  "social": { "github": "GitHub", "linkedin": "LinkedIn", "email": "Email" },
+  "modal": {
+    "close": "Close details",
+    "status": "Production",
+    "overview": "Overview",
+    "features": "Features",
+    "stack": "Stack",
+    "featureOne": "Real-time aggregation via TimescaleDB",
+    "featureTwo": "ML-powered demand forecast",
+    "featureThree": "Interactive D3.js visualizations",
+    "featureFour": "Row-level secure multi-tenancy",
+    "stars": "342 stars",
+    "demo": "Live demo",
+    "source": "Source code"
+  },
+  "social": { "github": "GitHub", "linkedin": "LinkedIn", "twitter": "Twitter", "email": "Email" },
   "footer": {
-    "copyright": "© 2026 Jonathan Febraio",
-    "note": "Designed and developed with intention."
+    "copyright": "© 2026 Jonathan Febraio · Febraio Tecnologia",
+    "note": "Software Engineer · Brazil"
   }
 }

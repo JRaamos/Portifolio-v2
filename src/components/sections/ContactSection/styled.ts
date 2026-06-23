@@ -1,101 +1,76 @@
 import styled from 'styled-components';
-
-export const ContactPanel = styled.div`
-  position: relative;
+export const ContactGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr minmax(17rem, 0.4fr);
+  grid-template-columns: 1fr minmax(20rem, 32.5rem);
   gap: ${({ theme }) => theme.spacing.xxxl};
-  overflow: hidden;
-  padding: ${({ theme }) => theme.spacing.xxxl};
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: -8%;
-    bottom: -45%;
-    width: ${({ theme }) => theme.sizes.orbSmall};
-    aspect-ratio: 1;
-    border-radius: ${({ theme }) => theme.radius.circle};
-    background: ${({ theme }) => theme.colors.accent.strong};
-    filter: ${({ theme }) => theme.blur.xl};
-    opacity: 0.22;
-    pointer-events: none;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    padding: ${({ theme }) => theme.spacing.xl};
-  }
-`;
-
-export const ContactCopy = styled.div`
-  position: relative;
-  z-index: ${({ theme }) => theme.zIndex.content};
-
-  > p {
+  align-items: start;
+  p {
     max-width: ${({ theme }) => theme.containers.text};
-    margin: ${({ theme }) => `${theme.spacing.lg} 0 0`};
     color: ${({ theme }) => theme.colors.text.secondary};
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `;
-
-export const Title = styled.h2`
-  max-width: 12ch;
-  margin: ${({ theme }) => `${theme.spacing.lg} 0 0`};
+export const ContactTitle = styled.h2`
+  display: grid;
+  margin: ${({ theme }) => `${theme.spacing.lg} 0`};
+  font-family: ${({ theme }) => theme.typography.family.display};
   font-size: ${({ theme }) => theme.typography.size.section};
-  font-weight: ${({ theme }) => theme.typography.weight.medium};
   line-height: ${({ theme }) => theme.typography.lineHeight.heading};
-  letter-spacing: ${({ theme }) => theme.typography.letterSpacing.heading};
-`;
-
-export const ContactActions = styled.div`
-  position: relative;
-  z-index: ${({ theme }) => theme.zIndex.content};
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: ${({ theme }) => theme.spacing.lg};
-
-  > a {
-    text-decoration: none;
-  }
-  > span {
-    color: ${({ theme }) => theme.colors.text.muted};
-    font-size: ${({ theme }) => theme.typography.size.sm};
+  span {
+    background: ${({ theme }) => theme.gradients.accent};
+    background-clip: text;
+    color: transparent;
   }
 `;
-
-export const ActionLink = styled.a`
-  min-height: ${({ theme }) => theme.sizes.button};
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.sm};
-  padding-inline: ${({ theme }) => theme.spacing.xl};
-  color: ${({ theme }) => theme.colors.text.inverse};
-  border-radius: ${({ theme }) => theme.radius.pill};
-  background: ${({ theme }) => theme.colors.surface.solid};
-  font-weight: ${({ theme }) => theme.typography.weight.semibold};
-  text-decoration: none;
-  transition: transform ${({ theme }) => theme.transitions.normal};
-
-  &:hover {
-    transform: translateY(-0.18rem);
-  }
-`;
-
-export const SocialLinks = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.lg};
-
+export const ContactLinks = styled.div`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.spacing.xl};
   a {
     color: ${({ theme }) => theme.colors.text.primary};
     text-decoration: none;
-    transition: color ${({ theme }) => theme.transitions.fast};
   }
-
-  a:hover {
-    color: ${({ theme }) => theme.colors.accent.primary};
+`;
+export const Form = styled.form`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.xl};
+  border: ${({ theme }) => theme.glass.border};
+  border-radius: ${({ theme }) => theme.radius.lg};
+  background: ${({ theme }) => theme.glass.surface};
+  box-shadow: ${({ theme }) => theme.shadows.glass};
+  backdrop-filter: ${({ theme }) => theme.blur.md};
+`;
+export const Field = styled.div`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.xs};
+  label {
+    color: ${({ theme }) => theme.colors.text.muted};
+    font-family: ${({ theme }) => theme.typography.family.mono};
+    font-size: ${({ theme }) => theme.typography.size.xs};
+    text-transform: uppercase;
   }
+  input,
+  textarea {
+    width: 100%;
+    border: ${({ theme }) => theme.glass.border};
+    border-radius: ${({ theme }) => theme.radius.md};
+    padding: ${({ theme }) => theme.spacing.md};
+    color: ${({ theme }) => theme.colors.text.primary};
+    background: ${({ theme }) => theme.colors.background.secondary};
+    resize: vertical;
+  }
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.text.muted};
+  }
+`;
+export const Submit = styled.button`
+  height: ${({ theme }) => theme.sizes.button};
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background: ${({ theme }) => theme.colors.accent.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-weight: ${({ theme }) => theme.typography.weight.semibold};
+  cursor: pointer;
 `;
