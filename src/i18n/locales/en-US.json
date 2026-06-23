@@ -1,0 +1,94 @@
+{
+  "brand": { "name": "Jonathan Febraio", "role": "Frontend Developer" },
+  "navigation": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "language": {
+    "label": "Select language",
+    "pt-BR": "Português",
+    "en-US": "English",
+    "es-ES": "Español"
+  },
+  "hero": {
+    "eyebrow": "Available for new projects",
+    "titlePrefix": "I design",
+    "titleAccent": "digital experiences",
+    "titleSuffix": "that leave a mark.",
+    "description": "Frontend with product thinking, solid code and an obsession with the details that turn interfaces into experiences.",
+    "primaryAction": "View projects",
+    "secondaryAction": "Talk to me",
+    "scroll": "Explore portfolio"
+  },
+  "about": {
+    "eyebrow": "About me",
+    "title": "Clarity in product. Precision in code.",
+    "lead": "I turn complex problems into simple, fast and accessible experiences.",
+    "body": "I work at the intersection of design and engineering, building interfaces that communicate clearly and scale confidently. Every visual decision needs a reason; every line of code, a purpose.",
+    "stats": {
+      "yearsValue": "4+",
+      "yearsLabel": "years building products",
+      "projectsValue": "18",
+      "projectsLabel": "projects delivered",
+      "qualityValue": "100%",
+      "qualityLabel": "focused on quality"
+    }
+  },
+  "skills": {
+    "eyebrow": "Stack and craft",
+    "title": "Tools are means. Outcomes are the point.",
+    "description": "A modern foundation for fast, sustainable digital products that feel good to use.",
+    "frontend": "Frontend",
+    "architecture": "Architecture",
+    "quality": "Quality"
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "Projects with intention and impact.",
+    "visit": "View project",
+    "aurora": {
+      "title": "Aurora Finance",
+      "description": "A financial experience that turns dense data into clear decisions.",
+      "impact": "Design system · Dashboard · Performance"
+    },
+    "atlas": {
+      "title": "Atlas Commerce",
+      "description": "A modular shopping journey built to grow without compromising speed.",
+      "impact": "E-commerce · Conversion · Accessibility"
+    },
+    "nexo": {
+      "title": "Nexo Health",
+      "description": "A care platform connecting people, professionals and information.",
+      "impact": "Digital product · UX · Frontend"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Building products, evolving systems.",
+    "currentPeriod": "2024 — now",
+    "currentRole": "Frontend Engineer",
+    "currentCompany": "Digital product",
+    "currentDescription": "Building web experiences, evolving design systems and partnering closely with product and design.",
+    "previousPeriod": "2022 — 2024",
+    "previousRole": "Frontend Developer",
+    "previousCompany": "Technology consultancy",
+    "previousDescription": "Delivery of responsive applications, service integrations and continuous user experience improvement."
+  },
+  "contact": {
+    "eyebrow": "Let's talk",
+    "title": "Have a good idea? Let's make it real.",
+    "description": "I am open to projects, opportunities and conversations about thoughtfully built digital products.",
+    "emailAction": "Send an email",
+    "socialLabel": "Other channels"
+  },
+  "social": { "github": "GitHub", "linkedin": "LinkedIn", "email": "Email" },
+  "footer": {
+    "copyright": "© 2026 Jonathan Febraio",
+    "note": "Designed and developed with intention."
+  }
+}

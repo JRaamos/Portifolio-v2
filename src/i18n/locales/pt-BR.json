@@ -1,0 +1,94 @@
+{
+  "brand": { "name": "Jonathan Febraio", "role": "Desenvolvedor Frontend" },
+  "navigation": {
+    "about": "Sobre",
+    "skills": "Competências",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato",
+    "menuOpen": "Abrir menu",
+    "menuClose": "Fechar menu"
+  },
+  "language": {
+    "label": "Selecionar idioma",
+    "pt-BR": "Português",
+    "en-US": "English",
+    "es-ES": "Español"
+  },
+  "hero": {
+    "eyebrow": "Disponível para novos projetos",
+    "titlePrefix": "Eu projeto",
+    "titleAccent": "experiências digitais",
+    "titleSuffix": "que deixam marca.",
+    "description": "Frontend com pensamento de produto, código sólido e obsessão pelos detalhes que transformam interfaces em experiências.",
+    "primaryAction": "Ver projetos",
+    "secondaryAction": "Falar comigo",
+    "scroll": "Explorar portfólio"
+  },
+  "about": {
+    "eyebrow": "Sobre mim",
+    "title": "Clareza no produto. Precisão no código.",
+    "lead": "Transformo problemas complexos em experiências simples, rápidas e acessíveis.",
+    "body": "Trabalho na interseção entre design e engenharia, construindo interfaces que comunicam com clareza e escalam com confiança. Cada decisão visual precisa ter um motivo; cada linha de código, um propósito.",
+    "stats": {
+      "yearsValue": "4+",
+      "yearsLabel": "anos criando produtos",
+      "projectsValue": "18",
+      "projectsLabel": "projetos entregues",
+      "qualityValue": "100%",
+      "qualityLabel": "foco em qualidade"
+    }
+  },
+  "skills": {
+    "eyebrow": "Stack e prática",
+    "title": "Ferramentas são meios. Resultado é o ponto.",
+    "description": "Uma base moderna para criar produtos digitais rápidos, sustentáveis e agradáveis de usar.",
+    "frontend": "Frontend",
+    "architecture": "Arquitetura",
+    "quality": "Qualidade"
+  },
+  "projects": {
+    "eyebrow": "Trabalhos selecionados",
+    "title": "Projetos com intenção e impacto.",
+    "visit": "Conhecer projeto",
+    "aurora": {
+      "title": "Aurora Finance",
+      "description": "Experiência financeira que transforma dados densos em decisões claras.",
+      "impact": "Design system · Dashboard · Performance"
+    },
+    "atlas": {
+      "title": "Atlas Commerce",
+      "description": "Jornada de compra modular feita para crescer sem comprometer velocidade.",
+      "impact": "E-commerce · Conversão · Acessibilidade"
+    },
+    "nexo": {
+      "title": "Nexo Saúde",
+      "description": "Plataforma de cuidado que aproxima pessoas, profissionais e informação.",
+      "impact": "Produto digital · UX · Frontend"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experiência",
+    "title": "Construindo produtos, evoluindo sistemas.",
+    "currentPeriod": "2024 — agora",
+    "currentRole": "Frontend Engineer",
+    "currentCompany": "Produto digital",
+    "currentDescription": "Desenvolvimento de experiências web, evolução de design systems e parceria próxima com produto e design.",
+    "previousPeriod": "2022 — 2024",
+    "previousRole": "Frontend Developer",
+    "previousCompany": "Consultoria de tecnologia",
+    "previousDescription": "Entrega de aplicações responsivas, integração de serviços e melhoria contínua da experiência do usuário."
+  },
+  "contact": {
+    "eyebrow": "Vamos conversar",
+    "title": "Tem uma boa ideia? Vamos torná-la real.",
+    "description": "Estou aberto a projetos, oportunidades e conversas sobre produtos digitais bem construídos.",
+    "emailAction": "Enviar e-mail",
+    "socialLabel": "Outros canais"
+  },
+  "social": { "github": "GitHub", "linkedin": "LinkedIn", "email": "E-mail" },
+  "footer": {
+    "copyright": "© 2026 Jonathan Febraio",
+    "note": "Desenhado e desenvolvido com intenção."
+  }
+}
