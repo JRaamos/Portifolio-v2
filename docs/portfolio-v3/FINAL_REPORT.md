@@ -74,7 +74,19 @@ The E2E matrix covers `390`, `430`, `768`, `1366`, `1440`, and `1920` pixel widt
 
 ## Publication status
 
-The repository is prepared for GitHub Pages publication through `.github/workflows/pages.yml`. The final commit, workflow run, public deep-link checks, and public render verification will be added here immediately after the deployment completes.
+The V3 implementation was published from commit [`b8ca7d1`](https://github.com/JRaamos/Portifolio-v2/commit/b8ca7d1586108794eb0a260329e08e60172354c0). GitHub Actions run [33332694172](https://github.com/JRaamos/Portifolio-v2/actions/runs/33332694172) completed both `build` and `deploy` jobs successfully, including lint, unit tests, production build, Playwright installation, E2E behavior, responsive checks, and automated accessibility analysis.
+
+Post-deployment checks observed:
+
+- `200 text/html` for the public home page;
+- `200 text/html` for direct Magventure and Crypto AI case-study routes;
+- `200 application/xml` for the generated sitemap;
+- `200 image/png` for the 1200 × 630 social preview;
+- the new hashed V3 JavaScript and CSS bundles in the public HTML;
+- the expected case-specific pre-hydration title and canonical URL;
+- successful public browser rendering and a direct case-route reload with heading, evidence chapter, and back navigation intact.
+
+Public URL: <https://jraamos.github.io/Portifolio-v2/>
 
 ## Honest remaining boundaries
 
