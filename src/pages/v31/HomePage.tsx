@@ -1,9 +1,9 @@
 import { AboutContact } from '../../components/v31/AboutContact';
 import { AdditionalProjects } from '../../components/v31/AdditionalProjects';
 import { AmbientSignalField } from '../../components/v31/AmbientSignalField';
-import { EngineeringModes } from '../../components/v31/EngineeringModes';
 import { Experience } from '../../components/v31/Experience';
 import { HeaderV32 } from '../../components/v32/HeaderV32';
+import { InteractiveSystemLab } from '../../components/v32/InteractiveSystemLab';
 import { Hero } from '../../components/v31/Hero';
 import { ProductChapters } from '../../components/v31/ProductChapters';
 import { ProfessionalStory } from '../../components/v31/ProfessionalStory';
@@ -34,7 +34,7 @@ export function HomePage() {
       <main>
         <Hero />
         <ProfessionalStory />
-        <EngineeringModes />
+        <InteractiveSystemLab />
         <ProductChapters />
         <AdditionalProjects />
         <Experience />
