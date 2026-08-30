@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { LanguageSelector } from '../../ui/LanguageSelector';
 import {
   Brand,
   BrandCopy,
@@ -13,21 +12,13 @@ import {
 } from './styled';
 
 interface HeaderProps {
-  language: string;
   isMenuOpen: boolean;
-  onLanguageChange: (language: string) => void;
   onNavigate: (sectionId: string) => void;
   onMenuToggle: () => void;
 }
-const navigationItems = ['about', 'projects', 'experience', 'writing', 'contact'] as const;
+const navigationItems = ['projects', 'experience', 'skills', 'about', 'contact'] as const;
 
-export function Header({
-  language,
-  isMenuOpen,
-  onLanguageChange,
-  onNavigate,
-  onMenuToggle,
-}: HeaderProps) {
+export function Header({ isMenuOpen, onNavigate, onMenuToggle }: HeaderProps) {
   const { t } = useTranslation();
   return (
     <HeaderBar>
@@ -50,7 +41,6 @@ export function Header({
             ))}
           </NavList>
         </Nav>
-        <LanguageSelector value={language} onChange={onLanguageChange} />
         <MenuButton
           type="button"
           onClick={onMenuToggle}

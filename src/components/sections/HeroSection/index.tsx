@@ -41,13 +41,19 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               {t('hero.primaryAction')} <span aria-hidden="true">↗</span>
             </Button>
             <Socials>
-              <a href="https://github.com/jonathanfebraio" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/JRaamos"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
                 GH
               </a>
               <a
-                href="https://www.linkedin.com/in/jonathanfebraio/"
+                href="https://www.linkedin.com/in/jonathan-febraio/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn"
               >
                 IN
               </a>

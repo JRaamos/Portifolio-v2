@@ -10,16 +10,11 @@ export function useController() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
-    document.documentElement.lang = i18n.resolvedLanguage ?? 'pt-BR';
+    document.documentElement.lang = i18n.resolvedLanguage ?? 'en-US';
   }, [i18n.resolvedLanguage]);
 
   function navigateTo(sectionId: string) {
     scrollToSection(sectionId);
-    setIsMenuOpen(false);
-  }
-
-  function changeLanguage(language: string) {
-    void i18n.changeLanguage(language);
     setIsMenuOpen(false);
   }
 
@@ -36,10 +31,8 @@ export function useController() {
 
   return {
     data: portfolioData,
-    language: i18n.resolvedLanguage ?? 'pt-BR',
     isMenuOpen,
     navigateTo,
-    changeLanguage,
     toggleMenu,
     selectedProject,
     selectProject,

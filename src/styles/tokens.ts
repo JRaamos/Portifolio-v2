@@ -50,7 +50,6 @@ export const tokens = {
     projectRed: 'linear-gradient(145deg, rgba(220,38,38,0.34), rgba(69,10,10,0.18))',
     projectAmber: 'linear-gradient(145deg, rgba(245,158,11,0.34), rgba(69,26,3,0.18))',
     projectCyan: 'linear-gradient(145deg, rgba(8,145,178,0.34), rgba(8,47,73,0.18))',
-    quote: 'linear-gradient(90deg, rgba(30,64,175,0.1), rgba(30,64,175,0.05), rgba(30,64,175,0))',
     fade: 'linear-gradient(180deg, transparent, #020617)',
   },
   typography: {
@@ -127,7 +126,7 @@ export const tokens = {
     modal: '48rem',
   },
   assets: {
-    hero: 'http://localhost:3845/assets/87af7f52694047878d343efeb8ade4ddd3193dff.png',
-    portrait: 'http://localhost:3845/assets/2916980f579b2d3daadae284c6920494b07c28ac.png',
+    hero: `${import.meta.env.BASE_URL}hero-engineering.png`,
+    portrait: `${import.meta.env.BASE_URL}profile/jonathan-febraio.png`,
   },
 } as const;

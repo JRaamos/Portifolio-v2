@@ -1,22 +1,53 @@
-# Jonathan Febraio - Portfolio
+# Jonathan Febraio — Selected Engineering Work
 
-Portfolio profissional construido com React, TypeScript, Vite, styled-components e react-i18next.
+Evidence-based engineering portfolio for [Jonathan Febraio](https://www.linkedin.com/in/jonathan-febraio/), a Full Stack Software Engineer working primarily with TypeScript, Node.js, React, and React Native.
 
-## Scripts
+The portfolio presents a focused set of real products and the engineering decisions behind them. It intentionally excludes unverified metrics, fictional employers, skill percentages, and claims that cannot be traced to code, documentation, tests, deployments, or working product surfaces.
+
+## Selected work
+
+- **FebraioTech:** live Next.js and Medusa v2 commerce product.
+- **Manual dos Achados:** live editorial comparison platform with Next.js and Strapi workflows.
+- **Crypto AI:** private read-only market-research copilot with deterministic analysis and an explicit AI review boundary.
+- **BuildBalance:** NestJS and React financial-management system with server-authoritative calculations and project authorization.
+- **Converse com Amor:** collaborative Next.js and Supabase application with Realtime, row-level security, and multi-user verification.
+
+## Architecture
+
+- React 19 and TypeScript application built with Vite.
+- `styled-components` design system with centralized tokens and responsive layouts.
+- English-first static content designed for international recruiting and technical review.
+- Local, versioned screenshots replace decorative or fabricated project imagery.
+- Accessible case-study dialog with explicit evidence, limitations, and external links.
+- Static deployment through GitHub Pages; no backend or analytics are required.
+
+## Development
+
+Requirements: Node.js and npm.
 
 ```bash
-npm install
+npm ci
 npm run dev
+```
+
+## Verification
+
+```bash
 npm run lint
 npm run build
 ```
 
-## Estrutura
+The production build is emitted to `dist/`. Open Graph metadata references the GitHub Pages deployment and a 1200 × 630 social preview.
 
-- `src/app`: bootstrap e providers
-- `src/pages/Home`: composicao, controller e dados mockados
-- `src/components`: layout, UI, glass e secoes
-- `src/styles`: tokens, tema e estilos globais
-- `src/i18n`: traducoes em portugues, ingles e espanhol
+## Content and privacy
 
-O conteudo e mockado e nao ha backend ou chamadas de API.
+- Private repositories are identified as private rather than linked.
+- Screenshots use public pages or clearly labeled demonstration data.
+- No client names, credentials, private endpoints, financial outcomes, user counts, or business metrics are published.
+- X-Apps product and client details remain anonymized.
+
+## Deployment
+
+The workflow in `.github/workflows/pages.yml` builds and publishes the static site to GitHub Pages after changes reach `main`.
+
+Expected public URL: <https://jraamos.github.io/Portifolio-v2/>

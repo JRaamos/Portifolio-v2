@@ -8,16 +8,26 @@ export interface SocialLink {
 export interface SkillGroup {
   id: string;
   titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
   skills: string[];
-  proficiency?: number;
 }
 export interface Project {
   id: string;
   categoryKey: TranslationKey;
   titleKey: TranslationKey;
   descriptionKey: TranslationKey;
+  problemKey: TranslationKey;
+  roleKey: TranslationKey;
+  architectureKey: TranslationKey;
+  decisionsKey: TranslationKey;
+  qualityKey: TranslationKey;
+  deploymentKey: TranslationKey;
+  image: string;
+  imageAltKey: TranslationKey;
   tags: string[];
-  visual: 'blue' | 'indigo' | 'green' | 'red' | 'amber' | 'cyan';
+  liveUrl?: string;
+  sourceUrl?: string;
+  accessKey?: TranslationKey;
   featured?: boolean;
 }
 export interface Experience {
@@ -28,18 +38,9 @@ export interface Experience {
   descriptionKey: TranslationKey;
   tags: string[];
 }
-export interface Article {
-  id: string;
-  categoryKey: TranslationKey;
-  dateKey: TranslationKey;
-  titleKey: TranslationKey;
-  descriptionKey: TranslationKey;
-  durationKey: TranslationKey;
-}
 export interface PortfolioData {
   socialLinks: SocialLink[];
   skillGroups: SkillGroup[];
   projects: Project[];
   experiences: Experience[];
-  articles: Article[];
 }

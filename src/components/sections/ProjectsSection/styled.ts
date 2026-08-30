@@ -1,17 +1,17 @@
-import styled, { css } from 'styled-components';
-import type { Project } from '../../../types/portfolio';
+import styled from 'styled-components';
 
 export const ProjectsHeader = styled.div`
-  max-width: ${({ theme }) => theme.containers.narrow};
-  margin-inline: auto;
+  max-width: 52rem;
   margin-bottom: ${({ theme }) => theme.spacing.xxxl};
-  text-align: center;
+
   p {
-    max-width: ${({ theme }) => theme.containers.text};
-    margin: ${({ theme }) => `${theme.spacing.lg} auto 0`};
+    max-width: 44rem;
+    margin: ${({ theme }) => `${theme.spacing.lg} 0 0`};
     color: ${({ theme }) => theme.colors.text.secondary};
+    font-size: ${({ theme }) => theme.typography.size.md};
   }
 `;
+
 export const Title = styled.h2`
   margin: ${({ theme }) => `${theme.spacing.lg} 0 0`};
   font-family: ${({ theme }) => theme.typography.family.display};
@@ -19,114 +19,128 @@ export const Title = styled.h2`
   line-height: ${({ theme }) => theme.typography.lineHeight.heading};
   letter-spacing: ${({ theme }) => theme.typography.letterSpacing.heading};
 `;
+
 export const ProjectGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${({ theme }) => theme.spacing.lg};
-  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: ${({ theme }) => theme.spacing.xl};
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
 `;
-const visual = {
-  blue: 'projectBlue',
-  indigo: 'projectIndigo',
-  green: 'projectGreen',
-  red: 'projectRed',
-  amber: 'projectAmber',
-  cyan: 'projectCyan',
-} as const;
-export const ProjectCard = styled.article<{ $visual: Project['visual'] }>`
-  position: relative;
-  display: flex;
-  min-height: 31rem;
-  flex-direction: column;
+
+export const ProjectCard = styled.article<{ $featured: boolean }>`
+  display: grid;
+  grid-column: ${({ $featured }) => ($featured ? 'span 2' : 'span 1')};
+  grid-template-columns: ${({ $featured }) => ($featured ? 'minmax(0, 1.35fr) minmax(18rem, 0.65fr)' : '1fr')};
+  align-items: stretch;
   overflow: hidden;
-  padding: ${({ theme }) => theme.spacing.lg};
-  border: ${({ theme }) => theme.glass.border};
-  border-radius: ${({ theme }) => theme.radius.lg};
-  background: ${({ theme }) => theme.glass.surface};
-  box-shadow: ${({ theme }) => theme.shadows.glass};
-  backdrop-filter: ${({ theme }) => theme.blur.md};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.strong};
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 70%);
   transition:
-    transform ${({ theme }) => theme.transitions.normal},
-    border-color ${({ theme }) => theme.transitions.normal};
+    border-color ${({ theme }) => theme.transitions.normal},
+    transform ${({ theme }) => theme.transitions.normal};
+
+  > div:last-child {
+    display: flex;
+    flex-direction: column;
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
+
   small {
-    margin-top: ${({ theme }) => theme.spacing.lg};
-    color: ${({ theme }) => theme.colors.accent.soft};
+    color: ${({ theme }) => theme.colors.accent.cyan};
     font-family: ${({ theme }) => theme.typography.family.mono};
     font-size: ${({ theme }) => theme.typography.size.xs};
     text-transform: uppercase;
     letter-spacing: ${({ theme }) => theme.typography.letterSpacing.wide};
   }
+
   h3 {
     margin: ${({ theme }) => `${theme.spacing.sm} 0 0`};
-    font-size: ${({ theme }) => theme.typography.size.xl};
+    font-family: ${({ theme }) => theme.typography.family.display};
+    font-size: clamp(1.65rem, 3vw, 2.35rem);
   }
+
   p {
+    margin: ${({ theme }) => `${theme.spacing.md} 0 0`};
     color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${({ theme }) => theme.typography.size.sm};
   }
-  ${({ $visual, theme }) => css`
-    ${ProjectVisual} {
-      background: ${theme.gradients[visual[$visual]]};
-    }
-  `} &:hover {
-    transform: translateY(-0.35rem);
-    border-color: ${({ theme }) => theme.colors.border.accent};
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    border-color: ${({ theme }) => theme.colors.accent.cyan};
+  }
+
+  &:hover img {
+    transform: scale(1.018);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
   }
 `;
-export const ProjectVisual = styled.div`
-  position: relative;
-  height: 12rem;
+
+export const ProjectImage = styled.figure`
+  min-height: 20rem;
+  margin: 0;
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.radius.md};
-  background: ${({ theme }) => theme.gradients.projectBlue};
-  span {
-    position: absolute;
-    border-radius: ${({ theme }) => theme.radius.pill};
-    background: ${({ theme }) => theme.colors.border.strong};
+  background: ${({ theme }) => theme.colors.background.elevated};
+
+  img {
+    width: 100%;
+    height: 100%;
+    min-height: 20rem;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform ${({ theme }) => theme.transitions.slow};
   }
-  span:first-child {
-    inset: ${({ theme }) => `${theme.spacing.lg} ${theme.spacing.xl} auto`};
-    height: ${({ theme }) => theme.sizes.line};
-  }
-  span:nth-child(2) {
-    right: ${({ theme }) => theme.spacing.xl};
-    bottom: ${({ theme }) => theme.spacing.lg};
-    width: 45%;
-    height: ${({ theme }) => theme.sizes.line};
-  }
-  strong {
-    position: absolute;
-    left: ${({ theme }) => theme.spacing.xl};
-    bottom: ${({ theme }) => theme.spacing.lg};
-    font-size: 4rem;
-    opacity: 0.35;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    min-height: 13rem;
+
+    img {
+      min-height: 13rem;
+    }
   }
 `;
+
 export const TagList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.spacing.xs};
   margin-top: auto;
-  padding-top: ${({ theme }) => theme.spacing.lg};
+  padding-top: ${({ theme }) => theme.spacing.xl};
+
   span {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid ${({ theme }) => theme.colors.border.subtle};
+    border-radius: ${({ theme }) => theme.radius.pill};
     color: ${({ theme }) => theme.colors.text.muted};
     font-size: ${({ theme }) => theme.typography.size.xs};
   }
 `;
+
 export const CardActions = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing.md};
-  margin-top: ${({ theme }) => theme.spacing.lg};
-  button {
+  flex-wrap: wrap;
+  gap: ${({ theme }) => theme.spacing.lg};
+  margin-top: ${({ theme }) => theme.spacing.xl};
+
+  button,
+  a {
     padding: 0;
     color: ${({ theme }) => theme.colors.text.primary};
     background: transparent;
+    font-size: ${({ theme }) => theme.typography.size.sm};
     font-weight: ${({ theme }) => theme.typography.weight.semibold};
+    text-decoration: none;
     cursor: pointer;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.accent.soft};
   }
 `;

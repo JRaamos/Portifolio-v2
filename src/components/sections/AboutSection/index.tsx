@@ -13,8 +13,8 @@ export function AboutSection() {
         <AboutGrid>
           <Portrait>
             <img
-              src="http://localhost:3845/assets/2916980f579b2d3daadae284c6920494b07c28ac.png"
-              alt={t('brand.name')}
+              src={`${import.meta.env.BASE_URL}profile/jonathan-febraio.png`}
+              alt="Portrait of Jonathan Febraio"
               loading="lazy"
             />
             <span>{t('about.companyValue')}</span>

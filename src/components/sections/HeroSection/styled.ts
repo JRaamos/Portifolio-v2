@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 const reveal = keyframes`from{opacity:0;transform:translateY(1.5rem)}to{opacity:1;transform:translateY(0)}`;
 export const HeroRoot = styled.section`
   position: relative;
-  min-height: 51rem;
+  min-height: min(56rem, 100svh);
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -11,10 +11,11 @@ export const HeroRoot = styled.section`
 export const HeroBackground = styled.div`
   position: absolute;
   inset: 0;
-  background-image: ${({ theme }) => `${theme.gradients.hero}, ${theme.gradients.heroFallback}`};
+  background-image: ${({ theme }) =>
+    `${theme.gradients.hero}, ${theme.gradients.heroFallback}, url('${theme.assets.hero}')`};
   background-size: cover;
-  background-position: center top;
-  opacity: 0.95;
+  background-position: center;
+  opacity: 0.82;
 `;
 export const HeroContent = styled.div`
   position: relative;
@@ -25,7 +26,7 @@ export const HeroContent = styled.div`
   padding: ${({ theme }) => `${theme.spacing.xxxl} ${theme.spacing.page} ${theme.spacing.xl}`};
 `;
 export const Intro = styled.div`
-  width: min(100%, 42rem);
+  width: min(100%, 46rem);
   padding-top: ${({ theme }) => theme.spacing.xxl};
   animation: ${reveal} ${({ theme }) => theme.transitions.slow} both;
   > p {
@@ -71,7 +72,7 @@ export const HeroTitle = styled.h1`
   display: grid;
   margin: ${({ theme }) => `${theme.spacing.lg} 0 0`};
   font-family: ${({ theme }) => theme.typography.family.display};
-  font-size: ${({ theme }) => theme.typography.size.display};
+  font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   line-height: ${({ theme }) => theme.typography.lineHeight.tight};
   letter-spacing: ${({ theme }) => theme.typography.letterSpacing.tight};
