@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">JF Signal proposal A — Signal Spine</title>
+  <desc id="desc">A compact J and F formed by a curved entry route, one vertical spine and two delivery branches.</desc>
+  <style>
+    :root { color: #edf2fa; }
+    .route, .branch, .pulse {
+      fill: none;
+      stroke-linecap: square;
+      stroke-linejoin: round;
+    }
+    .route, .branch { stroke: currentColor; stroke-width: 7; }
+    .route { stroke-dasharray: 100; animation: draw .72s cubic-bezier(.22,1,.36,1) both; }
+    .branch { stroke-dasharray: 28; animation: draw-branch .42s .32s cubic-bezier(.22,1,.36,1) both; }
+    .pulse {
+      stroke: #7da2ff;
+      stroke-width: 2.2;
+      stroke-dasharray: 9 91;
+      stroke-dashoffset: 100;
+      opacity: 0;
+      animation: signal .82s .28s cubic-bezier(.22,1,.36,1) both;
+    }
+    .node { fill: #7da2ff; transform-origin: 50px 28px; animation: node .26s .82s ease-out both; }
+    svg:hover .pulse { animation: signal-hover .64s cubic-bezier(.22,1,.36,1) both; }
+    svg:hover .node { animation: node-hover .64s ease-out both; }
+    @keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-branch { from { stroke-dashoffset: 28; } to { stroke-dashoffset: 0; } }
+    @keyframes signal { 0% { opacity: 0; stroke-dashoffset: 100; } 22% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes signal-hover { 0% { opacity: 0; stroke-dashoffset: 100; } 18% { opacity: 1; } 82% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes node { from { opacity: 0; transform: scale(.25); } to { opacity: 1; transform: scale(1); } }
+    @keyframes node-hover { 0%,100% { transform: scale(1); } 45% { transform: scale(1.8); } }
+    @media (prefers-reduced-motion: reduce) {
+      .route, .branch, .pulse, .node { animation: none; }
+      .pulse { display: none; }
+    }
+  </style>
+  <path class="route" pathLength="100" d="M9 42C9 52 16 57 24 55C31 53 34 48 34 39V12H56"/>
+  <path class="branch" pathLength="28" d="M34 28H50"/>
+  <path class="pulse" pathLength="100" d="M9 42C9 52 16 57 24 55C31 53 34 48 34 39V12H56"/>
+  <circle class="node" cx="50" cy="28" r="2.2"/>
+</svg>

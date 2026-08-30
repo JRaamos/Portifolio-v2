@@ -16,7 +16,7 @@
     <path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/>
   </g>
   <g font-family="IBM Plex Mono, Menlo, monospace" letter-spacing="2">
-    <text x="60" y="58" fill="#b9ceff" font-size="13">01 / SOFTWARE ENGINEER</text>
+    <text x="60" y="58" fill="#b9ceff" font-size="13">JF SIGNAL / SOFTWARE ENGINEER</text>
     <text x="60" y="535" fill="#5e6877" font-size="12">BRAZIL · UTC−3 · REMOTE WORLDWIDE</text>
     <text x="60" y="574" fill="#9ba7b8" font-size="13">WEB / MOBILE / BACKEND / AI / DATA / CLOUD</text>
   </g>
@@ -27,6 +27,12 @@
   <text x="60" y="376" fill="#a3adbb" font-family="Arial, Helvetica, sans-serif" font-size="20">
     Software engineering from system design to production delivery.
   </text>
+  <g transform="translate(1052 42)">
+    <path d="M9 42C9 52 16 57 24 55C31 53 34 48 34 39V12H56" fill="none" stroke="#edf2fa" stroke-width="7" stroke-linecap="square" stroke-linejoin="round"/>
+    <path d="M34 28H50" fill="none" stroke="#edf2fa" stroke-width="7" stroke-linecap="square"/>
+    <circle cx="50" cy="28" r="2.2" fill="#7da2ff"/>
+    <text x="28" y="75" fill="#8f9bab" font-family="IBM Plex Mono, Menlo, monospace" font-size="8" text-anchor="middle" letter-spacing="1.2">JF SIGNAL</text>
+  </g>
   <g fill="none" stroke="#7da2ff" stroke-width="1.5" stroke-opacity=".76">
     <path d="M650 188C746 188 742 306 829 306C913 306 935 425 1040 425"/>
   </g>

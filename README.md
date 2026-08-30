@@ -1,6 +1,10 @@
-# Jonathan Febraio — Portfolio V3.1
+# Jonathan Febraio — Portfolio V3.2
 
 An English-first software engineering portfolio designed as a working system rather than a résumé page. The experience follows product decisions through web, mobile, API, backend, AI, data, integrations and delivery.
+
+## JF Signal identity
+
+The V3.2 identity uses an original continuous-line JF monogram: an input route becomes a shared system spine and leaves through deliberate delivery branches. The mark is implemented as controllable SVG in React, includes full, compact, dark, light and monochrome lockups, and remains legible at favicon size. Motion is brief and event-driven, with a complete static state for reduced motion.
 
 ## Live site
 

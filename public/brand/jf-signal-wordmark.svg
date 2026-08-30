@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="80" viewBox="0 0 420 80" fill="none">
+  <title>Jonathan Febraio — Software Engineer</title>
+  <g transform="translate(4 8)">
+    <path d="M9 42C9 52 16 57 24 55C31 53 34 48 34 39V12H56" stroke="#edf2fa" stroke-width="7" stroke-linecap="square" stroke-linejoin="round"/>
+    <path d="M34 28H50" stroke="#edf2fa" stroke-width="7" stroke-linecap="square"/>
+    <circle cx="50" cy="28" r="2.2" fill="#7da2ff"/>
+  </g>
+  <path d="M88 14V66" stroke="#d6e1f1" stroke-opacity=".18"/>
+  <text x="112" y="35" fill="#edf2fa" font-family="Manrope,Arial,sans-serif" font-size="19" font-weight="650" letter-spacing=".4">Jonathan Febraio</text>
+  <text x="112" y="55" fill="#8e9aaa" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="500" letter-spacing="1.8">SOFTWARE ENGINEER</text>
+</svg>

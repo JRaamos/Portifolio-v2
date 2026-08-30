@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">JF Signal proposal C — Input Fork</title>
+  <desc id="desc">A blue input segment feeds a compact J spine that forks into two precise F delivery routes.</desc>
+  <style>
+    :root { color: #edf2fa; }
+    .route, .branch, .entry, .pulse {
+      fill: none;
+      stroke-linecap: square;
+      stroke-linejoin: round;
+    }
+    .route, .branch { stroke: currentColor; stroke-width: 7; }
+    .entry { stroke: #7da2ff; stroke-width: 7; }
+    .route { stroke-dasharray: 100; animation: draw .68s .08s cubic-bezier(.22,1,.36,1) both; }
+    .branch { stroke-dasharray: 28; animation: draw-branch .4s .34s cubic-bezier(.22,1,.36,1) both; }
+    .entry { stroke-dasharray: 13; animation: draw-entry .24s cubic-bezier(.22,1,.36,1) both; }
+    .pulse {
+      stroke: #b9ceff;
+      stroke-width: 2.2;
+      stroke-dasharray: 9 91;
+      stroke-dashoffset: 100;
+      opacity: 0;
+      animation: signal .82s .26s cubic-bezier(.22,1,.36,1) both;
+    }
+    .node { fill: #7da2ff; transform-origin: 49px 29px; animation: node .26s .78s ease-out both; }
+    svg:hover .pulse { animation: signal-hover .64s cubic-bezier(.22,1,.36,1) both; }
+    svg:hover .node { animation: node-hover .64s ease-out both; }
+    @keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-branch { from { stroke-dashoffset: 28; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-entry { from { stroke-dashoffset: 13; } to { stroke-dashoffset: 0; } }
+    @keyframes signal { 0% { opacity: 0; stroke-dashoffset: 100; } 22% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes signal-hover { 0% { opacity: 0; stroke-dashoffset: 100; } 18% { opacity: 1; } 82% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes node { from { opacity: 0; transform: scale(.25); } to { opacity: 1; transform: scale(1); } }
+    @keyframes node-hover { 0%,100% { transform: scale(1); } 45% { transform: scale(1.8); } }
+    @media (prefers-reduced-motion: reduce) {
+      .route, .branch, .entry, .pulse, .node { animation: none; }
+      .pulse { display: none; }
+    }
+  </style>
+  <path class="entry" pathLength="13" d="M7 43H15"/>
+  <path class="route" pathLength="100" d="M15 43C16 51 21 55 27 52C32 50 34 45 34 38V13H56"/>
+  <path class="branch" pathLength="28" d="M34 29H49"/>
+  <path class="pulse" pathLength="100" d="M15 43C16 51 21 55 27 52C32 50 34 45 34 38V13H56"/>
+  <circle class="node" cx="49" cy="29" r="2.2"/>
+</svg>

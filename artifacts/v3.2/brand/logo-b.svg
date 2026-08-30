@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">JF Signal proposal B — Forward Relay</title>
+  <desc id="desc">A routed J rises through a diagonal relay into an F with an angled secondary delivery branch.</desc>
+  <style>
+    :root { color: #edf2fa; }
+    .route, .branch, .pulse {
+      fill: none;
+      stroke-linecap: square;
+      stroke-linejoin: round;
+    }
+    .route, .branch { stroke: currentColor; stroke-width: 7; }
+    .route { stroke-dasharray: 100; animation: draw .74s cubic-bezier(.22,1,.36,1) both; }
+    .branch { stroke-dasharray: 30; animation: draw-branch .44s .34s cubic-bezier(.22,1,.36,1) both; }
+    .pulse {
+      stroke: #7da2ff;
+      stroke-width: 2.2;
+      stroke-dasharray: 10 90;
+      stroke-dashoffset: 100;
+      opacity: 0;
+      animation: signal .84s .25s cubic-bezier(.22,1,.36,1) both;
+    }
+    .node { fill: #7da2ff; transform-origin: 49px 25px; animation: node .26s .84s ease-out both; }
+    svg:hover .pulse { animation: signal-hover .64s cubic-bezier(.22,1,.36,1) both; }
+    svg:hover .node { animation: node-hover .64s ease-out both; }
+    @keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    @keyframes draw-branch { from { stroke-dashoffset: 30; } to { stroke-dashoffset: 0; } }
+    @keyframes signal { 0% { opacity: 0; stroke-dashoffset: 100; } 22% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes signal-hover { 0% { opacity: 0; stroke-dashoffset: 100; } 18% { opacity: 1; } 82% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes node { from { opacity: 0; transform: scale(.25); } to { opacity: 1; transform: scale(1); } }
+    @keyframes node-hover { 0%,100% { transform: scale(1); } 45% { transform: scale(1.8); } }
+    @media (prefers-reduced-motion: reduce) {
+      .route, .branch, .pulse, .node { animation: none; }
+      .pulse { display: none; }
+    }
+  </style>
+  <path class="route" pathLength="100" d="M8 43C9 52 16 57 24 54C29 52 32 47 32 40L35 13H57"/>
+  <path class="branch" pathLength="30" d="M33.5 29L49 25"/>
+  <path class="pulse" pathLength="100" d="M8 43C9 52 16 57 24 54C29 52 32 47 32 40L35 13H57"/>
+  <circle class="node" cx="49" cy="25" r="2.2"/>
+</svg>

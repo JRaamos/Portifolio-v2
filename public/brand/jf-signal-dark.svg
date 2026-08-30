@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>JF Signal dark</title>
+  <path d="M9 42C9 52 16 57 24 55C31 53 34 48 34 39V12H56" stroke="#0a1019" stroke-width="7" stroke-linecap="square" stroke-linejoin="round"/>
+  <path d="M34 28H50" stroke="#0a1019" stroke-width="7" stroke-linecap="square"/>
+  <circle cx="50" cy="28" r="2.2" fill="#315fd7"/>
+</svg>
