@@ -10,7 +10,7 @@ import {
   type ArchitectureNodeId,
   type ArchitectureScene,
 } from '../../components/v31/architecture';
-import { Header } from '../../components/v31/Header';
+import { HeaderV32 } from '../../components/v32/HeaderV32';
 import { OptimizedImage } from '../../components/v31/OptimizedImage';
 import { getWorkCase, siteCopy, workCases } from '../../content/portfolio';
 import { useLocale } from '../../context/useLocale';
@@ -158,7 +158,7 @@ export function CaseStudyPage() {
 
   return (
     <div className="case-page-v31" ref={rootRef} id="top">
-      <Header />
+      <HeaderV32 />
       <main>
         <section className="case-hero-v31">
           <div className="case-hero-v31__top">
