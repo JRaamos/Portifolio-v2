@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jraamos.github.io/Portifolio-v2/sitemap.xml

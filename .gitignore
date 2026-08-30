@@ -23,6 +23,10 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 *.lcov
+playwright-report/
+test-results/
+docs/portfolio-v3/lighthouse-*.json
+public/qa/case-magventure-1440.png
 
 # nyc test coverage
 .nyc_output

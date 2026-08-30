@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f2efe6"/>
+  <g stroke="#11110f" stroke-opacity=".16">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
+    <path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/>
+  </g>
+  <circle cx="948" cy="315" r="298" fill="#ff5a22"/>
+  <circle cx="948" cy="315" r="196" fill="none" stroke="#11110f" stroke-opacity=".3"/>
+  <circle cx="948" cy="315" r="108" fill="none" stroke="#11110f" stroke-opacity=".3"/>
+  <g fill="#fcfaf4" stroke="#11110f" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" text-anchor="middle">
+    <rect x="760" y="166" width="108" height="42" rx="21"/><text x="814" y="192" fill="#11110f" stroke="none">WEB</text>
+    <rect x="954" y="124" width="108" height="42" rx="21"/><text x="1008" y="150" fill="#11110f" stroke="none">MOBILE</text>
+    <rect x="840" y="295" width="108" height="42" rx="21"/><text x="894" y="321" fill="#11110f" stroke="none">API</text>
+    <rect x="1011" y="277" width="108" height="42" rx="21"/><text x="1065" y="303" fill="#11110f" stroke="none">AI</text>
+    <rect x="785" y="428" width="108" height="42" rx="21"/><text x="839" y="454" fill="#11110f" stroke="none">DATA</text>
+    <rect x="979" y="455" width="108" height="42" rx="21"/><text x="1033" y="481" fill="#11110f" stroke="none">CLOUD</text>
+  </g>
+  <g fill="none" stroke="#11110f" stroke-width="2" stroke-opacity=".62">
+    <path d="M868 187c44 0 41 129 76 129M1008 166c-5 76-44 99-60 150M948 316h63M894 337c-3 67-29 83-55 91M1065 319c-1 73-24 100-32 136M893 449h86"/>
+  </g>
+  <g fill="#11110f" font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="72" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" letter-spacing="2">JONATHAN FEBRAIO / SOFTWARE ENGINEER</text>
+    <text x="64" y="220" font-size="92" font-weight="700" letter-spacing="-6">SOFTWARE</text>
+    <text x="64" y="307" font-size="92" font-weight="700" letter-spacing="-6">BETWEEN</text>
+    <text x="64" y="394" font-size="92" font-weight="700" letter-spacing="-6">LAYERS.</text>
+    <text x="70" y="535" font-family="IBM Plex Mono, Menlo, monospace" font-size="17" letter-spacing="1.5">FULL STACK · MOBILE · AI · DATA · CLOUD</text>
+    <text x="70" y="570" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" letter-spacing="1">BRAZIL / UTC−3 / REMOTE WORLDWIDE</text>
+  </g>
+</svg>

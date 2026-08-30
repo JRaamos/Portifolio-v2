@@ -1,27 +1,33 @@
-# Jonathan Febraio — Selected Engineering Work
+# Jonathan Febraio — Portfolio V3
 
-Evidence-based engineering portfolio for [Jonathan Febraio](https://www.linkedin.com/in/jonathan-febraio/), a Full Stack Software Engineer working primarily with TypeScript, Node.js, React, and React Native.
+An evidence-backed, English-first software engineering portfolio built around one idea: **software that moves between layers**.
 
-The portfolio presents a focused set of real products and the engineering decisions behind them. It intentionally excludes unverified metrics, fictional employers, skill percentages, and claims that cannot be traced to code, documentation, tests, deployments, or working product surfaces.
+The experience presents Jonathan's professional work separately from independent products, then traces how product decisions connect to web, mobile, backend, AI, data, quality, and delivery. Every project claim has a documented evidence boundary; private client data and unverified metrics are intentionally excluded.
 
-## Selected work
+## Live site
 
-- **FebraioTech:** live Next.js and Medusa v2 commerce product.
-- **Manual dos Achados:** live editorial comparison platform with Next.js and Strapi workflows.
-- **Crypto AI:** private read-only market-research copilot with deterministic analysis and an explicit AI review boundary.
-- **BuildBalance:** NestJS and React financial-management system with server-authoritative calculations and project authorization.
-- **Converse com Amor:** collaborative Next.js and Supabase application with Realtime, row-level security, and multi-user verification.
+<https://jraamos.github.io/Portifolio-v2/>
 
-## Architecture
+Selected case studies have stable, refresh-safe routes such as:
 
-- React 19 and TypeScript application built with Vite.
-- `styled-components` design system with centralized tokens and responsive layouts.
-- English-first static content designed for international recruiting and technical review.
-- Local, versioned screenshots replace decorative or fabricated project imagery.
-- Accessible case-study dialog with explicit evidence, limitations, and external links.
-- Static deployment through GitHub Pages; no backend or analytics are required.
+- `/work/magventure-platform/`
+- `/work/meu-auto-crm/`
+- `/work/febraio-tech/`
+- `/work/crypto-ai/`
+- `/work/time-bubble/`
 
-## Development
+## Experience architecture
+
+- React 19, TypeScript, and Vite 8.
+- Motion for React with one shared motion language and complete reduced-motion behavior.
+- BrowserRouter with generated static route shells for GitHub Pages deep links.
+- English by default, complete Portuguese copy, and locally persisted language preference.
+- Self-hosted Manrope and IBM Plex Mono fonts.
+- AVIF/WebP project and portrait assets with PNG fallbacks.
+- Per-route title, description, canonical, Open Graph, and Twitter metadata.
+- `Person` and `WebSite` structured data, sitemap, and robots policy.
+
+## Local development
 
 Requirements: Node.js and npm.
 
@@ -34,20 +40,37 @@ npm run dev
 
 ```bash
 npm run lint
+npm run test
 npm run build
+npm run test:e2e
+npm audit
 ```
 
-The production build is emitted to `dist/`. Open Graph metadata references the GitHub Pages deployment and a 1200 × 630 social preview.
+`npm run build` creates the production bundle and generates static HTML shells for every `/work/:slug/` route plus the GitHub Pages `404.html` fallback.
 
-## Content and privacy
+`npm run preview:pages` serves the built output under `/Portifolio-v2/`, matching the public GitHub Pages path instead of Vite's root-only preview behavior.
 
-- Private repositories are identified as private rather than linked.
-- Screenshots use public pages or clearly labeled demonstration data.
-- No client names, credentials, private endpoints, financial outcomes, user counts, or business metrics are published.
-- X-Apps product and client details remain anonymized.
+## Portfolio V3 documentation
+
+The research and validation record lives in [`docs/portfolio-v3`](./docs/portfolio-v3):
+
+- V2 audit and reference research;
+- professional-work inventory and privacy review;
+- three brand directions and the chosen visual thesis;
+- information architecture, content matrix, and motion system;
+- responsive visual QA and performance results;
+- final implementation and publication report.
+
+## Content and privacy rules
+
+- Professional projects describe verified contribution, not sole authorship.
+- Private screens, credentials, internal URLs, customer records, provider payloads, prompts, and commercial metrics are not published.
+- “Verified in source,” “tested locally,” “publicly accessible,” and “externally validated” remain separate claims.
+- Anajustra is not presented because no auditable local evidence was found during the V3 inventory.
+- Crypto AI is a read-only/simulation research system, not a trading bot.
+- TimeBubble's cross-app overlay is Android-specific.
+- Manual dos Achados does not claim backend automations absent from the audited checkout.
 
 ## Deployment
 
-The workflow in `.github/workflows/pages.yml` builds and publishes the static site to GitHub Pages after changes reach `main`.
-
-Expected public URL: <https://jraamos.github.io/Portifolio-v2/>
+`.github/workflows/pages.yml` installs dependencies, verifies the project, builds the static route shells, and publishes `dist/` to GitHub Pages on pushes to `main`.
