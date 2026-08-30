@@ -47,6 +47,34 @@ beforeAll(() => {
     writable: true,
     value: IntersectionObserverMock,
   });
+  const canvasContext = {
+    clearRect: () => undefined,
+    setTransform: () => undefined,
+    beginPath: () => undefined,
+    moveTo: () => undefined,
+    lineTo: () => undefined,
+    quadraticCurveTo: () => undefined,
+    roundRect: () => undefined,
+    arc: () => undefined,
+    fill: () => undefined,
+    stroke: () => undefined,
+    fillText: () => undefined,
+    globalAlpha: 1,
+    lineCap: 'round',
+    lineJoin: 'round',
+    lineWidth: 1,
+    strokeStyle: '',
+    fillStyle: '',
+    shadowColor: '',
+    shadowBlur: 0,
+    font: '',
+    textAlign: 'center',
+    textBaseline: 'middle',
+  } as unknown as CanvasRenderingContext2D;
+  Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+    writable: true,
+    value: () => canvasContext,
+  });
 });
 
 afterEach(() => {

@@ -43,7 +43,7 @@ test('switches language and keeps it after navigation', async ({ page }) => {
     .getByRole('link', { name: /abrir case anonimizado/i })
     .first()
     .click();
-  await expect(page.getByRole('link', { name: /voltar aos projetos/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Voltar aos projetos', exact: true })).toBeVisible();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
 });
@@ -65,6 +65,12 @@ test('mobile menu, external-link safety and touch targets work', async ({ page }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole('button', { name: /open menu/i }).click();
   await expect(page.getByRole('navigation', { name: /mobile navigation/i })).toBeVisible();
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('navigation', { name: /mobile navigation/i })).toBeHidden();
+  await expect(page.getByRole('button', { name: /open menu/i })).toBeFocused();
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  await page.getByRole('button', { name: /open menu/i }).click();
   await page
     .getByRole('navigation', { name: /mobile navigation/i })
     .getByRole('link')
@@ -113,29 +119,36 @@ test('fine-pointer motion responds to the cursor without becoming content state'
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  const field = page.locator('.ambient-signal-v31');
-  const beforePointer = await field.evaluate((element) =>
-    element.style.getPropertyValue('--ambient-x'),
-  );
-  await page.mouse.move(420, 260);
-  await page.waitForTimeout(80);
-  const afterPointer = await field.evaluate((element) =>
-    element.style.getPropertyValue('--ambient-x'),
-  );
-  expect(afterPointer).not.toBe(beforePointer);
+  const signal = page.locator('canvas[data-signal-field="hero"]');
+  const bounds = await signal.boundingBox();
+  expect(bounds).not.toBeNull();
+  await page.mouse.move(bounds!.x + bounds!.width * 0.65, bounds!.y + bounds!.height * 0.42);
+  const firstPointer = await signal.getAttribute('data-signal-pointer');
+  await page.mouse.move(bounds!.x + bounds!.width * 0.82, bounds!.y + bounds!.height * 0.58, {
+    steps: 3,
+  });
+  await page.waitForTimeout(100);
+  const secondPointer = await signal.getAttribute('data-signal-pointer');
+  expect(secondPointer).not.toBe(firstPointer);
+  await expect(signal).toHaveAttribute('data-signal-running', 'true');
+});
 
-  const project = page.locator('.additional-project-v31').first();
-  await project.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(1_000);
-  const beforeHover = await project.evaluate(
-    (element) => getComputedStyle(element, '::before').transform,
+test('section navigation and System Lab expose the active system state', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.getByRole('link', { name: 'System', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'System', exact: true })).toHaveAttribute(
+    'aria-current',
+    'location',
   );
-  await project.hover();
-  await page.waitForTimeout(700);
-  const afterHover = await project.evaluate(
-    (element) => getComputedStyle(element, '::before').transform,
+  await page.getByRole('tab', { name: /04 AI/i }).click();
+  await expect(
+    page.getByRole('heading', { name: /intelligence stays inside a bounded role/i }),
+  ).toBeVisible();
+  await expect(page.locator('canvas[data-signal-field="lab"]')).toHaveAttribute(
+    'data-signal-scene',
+    'lab-ai',
   );
-  expect(afterHover).not.toBe(beforeHover);
+  await expect(page.getByText('Qdrant')).toBeVisible();
 });
 
 test('reduced motion exposes content without long transitions', async ({ page }) => {
@@ -148,6 +161,35 @@ test('reduced motion exposes content without long transitions', async ({ page })
   });
   expect(['0s', '0.00001s', '1e-05s']).toContain(motion.animation);
   expect(['0s', '0.00001s', '1e-05s']).toContain(motion.transition);
+  await expect(page.locator('canvas[data-signal-field="hero"]')).toHaveAttribute(
+    'data-signal-running',
+    'false',
+  );
+  await expect(page.getByText(/product, web and mobile requests pass through api/i)).toBeAttached();
+});
+
+test('Signal Field pauses outside the viewport', async ({ page }) => {
+  const heroSignal = page.locator('canvas[data-signal-field="hero"]');
+  await expect(heroSignal).toHaveAttribute('data-signal-running', 'true');
+  await page.getByRole('link', { name: 'Contact', exact: true }).click();
+  await expect(heroSignal).toHaveAttribute('data-signal-visible', 'false');
+  await expect(heroSignal).toHaveAttribute('data-signal-running', 'false');
+});
+
+test('coarse pointers run one lightweight demo and then settle', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  });
+  const page = await context.newPage();
+  await page.goto(baseURL ?? './');
+  const heroSignal = page.locator('canvas[data-signal-field="hero"]');
+  await expect(heroSignal).toBeAttached();
+  await page.waitForTimeout(3_600);
+  await expect(heroSignal).toHaveAttribute('data-signal-running', 'false');
+  await expect(heroSignal).not.toHaveAttribute('data-signal-pointer', /.+/);
+  await context.close();
 });
 
 test('home has no automatically detectable WCAG A/AA violations', async ({ page }) => {
