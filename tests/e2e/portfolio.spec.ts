@@ -39,10 +39,11 @@ test('switches language and keeps it after navigation', async ({ page }) => {
   await expect(page.getByText(/construo produtos entre web, backend, mobile e ia/i)).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
   await page.getByRole('link', { name: 'Projetos', exact: true }).click();
-  await page
-    .getByRole('link', { name: /abrir case anonimizado/i })
-    .first()
-    .click();
+  const firstCaseLink = page.getByRole('link', { name: /abrir case anonimizado/i }).first();
+  await expect(firstCaseLink).toHaveAttribute('href', /\/work\//);
+  await firstCaseLink.focus();
+  await expect(firstCaseLink).toBeFocused();
+  await page.keyboard.press('Enter');
   await expect(page.getByRole('link', { name: 'Voltar aos projetos', exact: true })).toBeVisible();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
