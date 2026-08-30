@@ -1,0 +1,30 @@
+{
+  "measuredAt": "2026-08-30T22:46:25.213Z",
+  "url": "http://127.0.0.1:4180/Portifolio-v2/",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "target": ".ambient-signal-v31",
+  "frames": {
+    "durationMs": 2996.2000000000003,
+    "frames": 219,
+    "fps": 72.75882784860823,
+    "medianFrameIntervalMs": 12,
+    "droppedFrames": 24,
+    "intervalsOverBudget": 24,
+    "maximumFrameIntervalMs": 27.100000000000364,
+    "longTaskCount": 0,
+    "longTaskDurationMs": 0
+  },
+  "cpu": {
+    "taskDurationMs": 185.22000000000003,
+    "scriptDurationMs": 17.201,
+    "layoutDurationMs": 2.333,
+    "recalcStyleDurationMs": 31.151999999999997
+  },
+  "memory": {
+    "jsHeapUsedBytes": 6413680,
+    "jsHeapTotalBytes": 9568256
+  }
+}
