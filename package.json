@@ -14,7 +14,10 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
-    "qa:capture": "node scripts/capture-v31-motion.mjs",
+    "qa:capture": "node scripts/capture-v32-qa.mjs",
+    "qa:capture:v31": "node scripts/capture-v31-motion.mjs",
+    "perf:motion": "node scripts/measure-v32-motion.mjs",
+    "brand:generate": "node scripts/generate-brand-assets.mjs",
     "assets:optimize": "node scripts/optimize-images.mjs",
     "privacy:check": "node scripts/check-public-privacy.mjs"
   },
