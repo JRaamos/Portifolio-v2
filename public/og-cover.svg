@@ -1,29 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f2efe6"/>
-  <g stroke="#11110f" stroke-opacity=".16">
+  <defs>
+    <radialGradient id="glow" cx="72%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#3459a3" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#07090d" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="signal-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#07090d"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g fill="none" stroke="#cdd9ec" stroke-opacity=".055">
     <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
     <path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/>
   </g>
-  <circle cx="948" cy="315" r="298" fill="#ff5a22"/>
-  <circle cx="948" cy="315" r="196" fill="none" stroke="#11110f" stroke-opacity=".3"/>
-  <circle cx="948" cy="315" r="108" fill="none" stroke="#11110f" stroke-opacity=".3"/>
-  <g fill="#fcfaf4" stroke="#11110f" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" text-anchor="middle">
-    <rect x="760" y="166" width="108" height="42" rx="21"/><text x="814" y="192" fill="#11110f" stroke="none">WEB</text>
-    <rect x="954" y="124" width="108" height="42" rx="21"/><text x="1008" y="150" fill="#11110f" stroke="none">MOBILE</text>
-    <rect x="840" y="295" width="108" height="42" rx="21"/><text x="894" y="321" fill="#11110f" stroke="none">API</text>
-    <rect x="1011" y="277" width="108" height="42" rx="21"/><text x="1065" y="303" fill="#11110f" stroke="none">AI</text>
-    <rect x="785" y="428" width="108" height="42" rx="21"/><text x="839" y="454" fill="#11110f" stroke="none">DATA</text>
-    <rect x="979" y="455" width="108" height="42" rx="21"/><text x="1033" y="481" fill="#11110f" stroke="none">CLOUD</text>
+  <g font-family="IBM Plex Mono, Menlo, monospace" letter-spacing="2">
+    <text x="60" y="58" fill="#b9ceff" font-size="13">01 / SOFTWARE ENGINEER</text>
+    <text x="60" y="535" fill="#5e6877" font-size="12">BRAZIL · UTC−3 · REMOTE WORLDWIDE</text>
+    <text x="60" y="574" fill="#9ba7b8" font-size="13">WEB / MOBILE / BACKEND / AI / DATA / CLOUD</text>
   </g>
-  <g fill="none" stroke="#11110f" stroke-width="2" stroke-opacity=".62">
-    <path d="M868 187c44 0 41 129 76 129M1008 166c-5 76-44 99-60 150M948 316h63M894 337c-3 67-29 83-55 91M1065 319c-1 73-24 100-32 136M893 449h86"/>
+  <g fill="#edf2fa" font-family="Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="-7">
+    <text x="54" y="205" font-size="112">Jonathan</text>
+    <text x="54" y="300" font-size="112" fill="none" stroke="#c7d0df" stroke-opacity=".72" stroke-width="1.2">Febraio</text>
   </g>
-  <g fill="#11110f" font-family="Arial, Helvetica, sans-serif">
-    <text x="70" y="72" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" letter-spacing="2">JONATHAN FEBRAIO / SOFTWARE ENGINEER</text>
-    <text x="64" y="220" font-size="92" font-weight="700" letter-spacing="-6">SOFTWARE</text>
-    <text x="64" y="307" font-size="92" font-weight="700" letter-spacing="-6">BETWEEN</text>
-    <text x="64" y="394" font-size="92" font-weight="700" letter-spacing="-6">LAYERS.</text>
-    <text x="70" y="535" font-family="IBM Plex Mono, Menlo, monospace" font-size="17" letter-spacing="1.5">FULL STACK · MOBILE · AI · DATA · CLOUD</text>
-    <text x="70" y="570" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" letter-spacing="1">BRAZIL / UTC−3 / REMOTE WORLDWIDE</text>
+  <text x="60" y="376" fill="#a3adbb" font-family="Arial, Helvetica, sans-serif" font-size="20">
+    Software engineering from system design to production delivery.
+  </text>
+  <g fill="none" stroke="#7da2ff" stroke-width="1.5" stroke-opacity=".76">
+    <path d="M650 188C746 188 742 306 829 306C913 306 935 425 1040 425"/>
+  </g>
+  <g fill="none" stroke="#a6badc" stroke-width="1" stroke-opacity=".25">
+    <path d="M650 333H829M829 306L1015 188M829 306L1015 333M829 306L1015 478"/>
+  </g>
+  <g font-family="IBM Plex Mono, Menlo, monospace" font-size="12" text-anchor="middle" letter-spacing="1.4">
+    <g transform="translate(598 166)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#7da2ff"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">PRODUCT</text></g>
+    <g transform="translate(598 311)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#8390a3" stroke-opacity=".45"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">WEB</text></g>
+    <g transform="translate(777 284)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#7da2ff"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">API</text></g>
+    <g transform="translate(963 166)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#8390a3" stroke-opacity=".45"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">AI</text></g>
+    <g transform="translate(963 311)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#8390a3" stroke-opacity=".45"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">DATA</text></g>
+    <g transform="translate(988 403)"><rect width="128" height="44" rx="3" fill="#16223c" stroke="#7da2ff"/><circle r="4" fill="#e7efff" filter="url(#signal-glow)"/><text x="64" y="27" fill="#edf2fa">SHIPPED</text></g>
+    <g transform="translate(963 456)"><rect width="104" height="44" rx="3" fill="#0b0f15" stroke="#8390a3" stroke-opacity=".45"/><circle r="4" fill="#b9ceff" filter="url(#signal-glow)"/><text x="52" y="27" fill="#dce5f3">CLOUD</text></g>
   </g>
 </svg>

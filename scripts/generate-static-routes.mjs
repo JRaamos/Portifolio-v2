@@ -7,20 +7,20 @@ const distPath = resolve(projectRoot, 'dist');
 const rootUrl = 'https://jraamos.github.io/Portifolio-v2/';
 
 const metadata = {
-  'magventure-platform': {
-    title: 'Magventure — Multi-surface Product Engineering · Jonathan Febraio',
+  'learning-intelligence-platform': {
+    title: 'Learning & Intelligence Platform — Engineering Case · Jonathan Febraio',
     description:
-      'Sanitized case study across web, mobile, Strapi, search, data services and delivery safeguards.',
+      'An anonymized engineering case across web, mobile, backend, search, data services and delivery safeguards.',
   },
-  'meu-auto-crm': {
-    title: 'Meu Auto + CRM — Connected Product Systems · Jonathan Febraio',
+  'automotive-crm-platform': {
+    title: 'Automotive Marketplace and CRM Ecosystem — Engineering Case · Jonathan Febraio',
     description:
-      'Sanitized automotive marketplace and CRM case spanning web, mobile, APIs, provider boundaries and operational workflows.',
+      'An anonymized automotive and CRM case spanning web, mobile, APIs, provider boundaries and operational workflows.',
   },
-  'softlave-operations': {
-    title: 'SoftLave — Multi-surface Operations · Jonathan Febraio',
+  'operations-platform': {
+    title: 'Multi-Surface Operations Platform — Engineering Case · Jonathan Febraio',
     description:
-      'Sanitized operations-platform case across administration, point of sale, self-service mobile and TypeScript services.',
+      'An anonymized operations-platform case across administration, point of sale, self-service mobile and TypeScript services.',
   },
   'febraio-tech': {
     title: 'FebraioTech — Commerce Architecture · Jonathan Febraio',
@@ -45,17 +45,6 @@ const metadata = {
     description:
       'Server-authoritative financial calculations, project authorization and auditable domain events.',
     image: 'projects/buildbalance.png',
-  },
-  'time-bubble': {
-    title: 'TimeBubble — Android Native Utility · Jonathan Febraio',
-    description:
-      'A React Native control surface coordinating an Android foreground overlay service.',
-  },
-  'converse-com-amor': {
-    title: 'Converse com Amor — Realtime Collaboration · Jonathan Febraio',
-    description:
-      'Anonymous collaborative sessions with private data protected at the database boundary.',
-    image: 'projects/converse-com-amor.png',
   },
 };
 

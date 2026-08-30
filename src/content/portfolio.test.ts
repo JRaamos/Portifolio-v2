@@ -5,12 +5,15 @@ describe('portfolio evidence model', () => {
   it('keeps every case addressable by a unique slug', () => {
     const slugs = workCases.map((item) => item.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
-    expect(slugs).toContain('magventure-platform');
-    expect(slugs).toContain('time-bubble');
+    expect(slugs).toContain('learning-intelligence-platform');
+    expect(slugs).toContain('automotive-crm-platform');
+    expect(slugs).toContain('operations-platform');
+    expect(slugs).toContain('febraio-tech');
   });
 
   it('separates professional work from independent products', () => {
     expect(professionalCases.length).toBeGreaterThanOrEqual(3);
+    expect(independentCases).toHaveLength(4);
     expect(professionalCases.every((item) => item.kind === 'professional')).toBe(true);
     expect(independentCases.every((item) => item.kind === 'independent')).toBe(true);
   });

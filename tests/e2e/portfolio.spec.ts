@@ -1,6 +1,8 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+let pageErrors: string[];
+
 const viewports = [
   { width: 390, height: 844 },
   { width: 430, height: 932 },
@@ -11,15 +13,19 @@ const viewports = [
 ];
 
 test.beforeEach(async ({ page }) => {
+  pageErrors = [];
+  page.on('pageerror', (error) => pageErrors.push(error.stack ?? error.message));
   await page.goto('./');
+});
+
+test.afterEach(() => {
+  expect(pageErrors).toEqual([]);
 });
 
 test('renders without horizontal overflow across required breakpoints', async ({ page }) => {
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
-    await expect(
-      page.getByRole('heading', { name: /software that moves between layers/i }),
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Jonathan Febraio' })).toBeVisible();
     const metrics = await page.evaluate(() => ({
       width: window.innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
@@ -30,11 +36,13 @@ test('renders without horizontal overflow across required breakpoints', async ({
 
 test('switches language and keeps it after navigation', async ({ page }) => {
   await page.getByRole('button', { name: 'PT' }).click();
-  await expect(
-    page.getByRole('heading', { name: /software que se move entre camadas/i }),
-  ).toBeVisible();
+  await expect(page.getByText(/construo produtos entre web, backend, mobile e ia/i)).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
-  await page.getByRole('link', { name: /magventure:/i }).click();
+  await page.getByRole('link', { name: 'Projetos', exact: true }).click();
+  await page
+    .getByRole('link', { name: /abrir case anonimizado/i })
+    .first()
+    .click();
   await expect(page.getByRole('link', { name: /voltar aos projetos/i })).toBeVisible();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
@@ -87,10 +95,8 @@ test('mobile menu, external-link safety and touch targets work', async ({ page }
 test('reduced motion exposes content without long transitions', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.reload();
-  await expect(
-    page.getByRole('heading', { name: /software that moves between layers/i }),
-  ).toBeVisible();
-  const motion = await page.locator('.hero-bottom').evaluate((element) => {
+  await expect(page.getByRole('heading', { name: 'Jonathan Febraio' })).toBeVisible();
+  const motion = await page.locator('.hero-support-v31').evaluate((element) => {
     const style = getComputedStyle(element);
     return { animation: style.animationDuration, transition: style.transitionDuration };
   });

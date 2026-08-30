@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/generate-static-routes.mjs",
+    "build": "tsc -b && vite build && node scripts/generate-static-routes.mjs && npm run privacy:check",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "preview": "vite preview",
@@ -14,13 +14,15 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
-    "assets:optimize": "node scripts/optimize-images.mjs"
+    "qa:capture": "node scripts/capture-v31-motion.mjs",
+    "assets:optimize": "node scripts/optimize-images.mjs",
+    "privacy:check": "node scripts/check-public-privacy.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@vitejs/plugin-react": "latest",
-    "motion": "^13.1.1",
+    "gsap": "^3.15.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^7.18.3",

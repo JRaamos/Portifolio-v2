@@ -2,18 +2,18 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
-describe('Portfolio V3', () => {
+describe('Portfolio V3.1', () => {
   it('renders the English-first system narrative and professional work', () => {
     render(<App />);
+    expect(screen.getByRole('heading', { name: 'Jonathan Febraio' })).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { name: /software that moves between layers/i }),
+      screen.getByRole('heading', {
+        name: /engineering contributions delivered through x-apps/i,
+      }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /systems delivered inside real product teams/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /magventure:/i })).toHaveAttribute(
+    expect(screen.getAllByRole('link', { name: /open anonymized case/i })[0]).toHaveAttribute(
       'href',
-      '/work/magventure-platform',
+      '/work/learning-intelligence-platform',
     );
   });
 
@@ -21,7 +21,7 @@ describe('Portfolio V3', () => {
     render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'PT' }));
     expect(
-      await screen.findByRole('heading', { name: /software que se move entre camadas/i }),
+      await screen.findByText(/construo produtos entre web, backend, mobile e ia/i),
     ).toBeInTheDocument();
     expect(document.documentElement.lang).toBe('pt-BR');
     expect(window.localStorage.getItem('portfolio-locale')).toBe('pt');

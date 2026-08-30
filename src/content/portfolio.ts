@@ -16,29 +16,29 @@ export const siteCopy = {
       'Jonathan Febraio · Software Engineer',
       'Jonathan Febraio · Engenheiro de Software',
     ),
-    title: copy('Software that moves between layers.', 'Software que se move entre camadas.'),
+    title: copy('Jonathan Febraio', 'Jonathan Febraio'),
     intro: copy(
-      'I design and ship web, mobile, backend and AI-enabled systems — following the work from product decision to production evidence.',
-      'Eu projeto e entrego sistemas web, mobile, backend e com IA — acompanhando o trabalho da decisão de produto à evidência em produção.',
+      'I build products across web, backend, mobile and AI — from system design to production delivery.',
+      'Construo produtos entre web, backend, mobile e IA — do desenho do sistema à entrega em produção.',
     ),
-    primary: copy('Explore selected systems', 'Explorar sistemas selecionados'),
+    primary: copy('Explore selected work', 'Explorar trabalho selecionado'),
     secondary: copy('Open LinkedIn', 'Abrir LinkedIn'),
     location: copy('Brazil · UTC−3 · Remote worldwide', 'Brasil · UTC−3 · Remoto global'),
-    scroll: copy('Trace the system', 'Percorra o sistema'),
+    scroll: copy('Follow the request', 'Acompanhe a requisição'),
   },
   statement: copy(
     'The interface is only one surface. I work through the API, data, mobile, automation and delivery layers that make a product hold together.',
     'A interface é apenas uma superfície. Eu atravesso API, dados, mobile, automação e entrega para fazer o produto funcionar como um sistema.',
   ),
   professional: {
-    index: copy('01 / Professional work', '01 / Trabalho profissional'),
+    index: copy('01 / Selected professional work', '01 / Trabalho profissional selecionado'),
     title: copy(
-      'Systems delivered inside real product teams.',
-      'Sistemas entregues dentro de times de produto reais.',
+      'Engineering contributions delivered through X-Apps.',
+      'Contribuições de engenharia entregues através da X-Apps.',
     ),
     intro: copy(
-      'Selected work is described at architecture and responsibility level. Client data, internal screens, credentials and private business details stay private.',
-      'O trabalho selecionado é apresentado no nível de arquitetura e responsabilidade. Dados de clientes, telas internas, credenciais e detalhes privados permanecem protegidos.',
+      'Three product domains. One architecture that changes as the work changes. Client identities and private operations stay private.',
+      'Três domínios de produto. Uma arquitetura que muda conforme o trabalho muda. Identidades de clientes e operações privadas permanecem protegidas.',
     ),
   },
   system: {
@@ -107,10 +107,7 @@ export const siteCopy = {
   },
   independent: {
     index: copy('03 / Independent products', '03 / Produtos independentes'),
-    title: copy(
-      'Built to understand the whole system.',
-      'Construídos para entender o sistema inteiro.',
-    ),
+    title: copy('Products I can show in full.', 'Produtos que posso mostrar por inteiro.'),
     intro: copy(
       'Independent products are where I take full responsibility for the model, interface, infrastructure and operating choices.',
       'Nos produtos independentes, assumo responsabilidade completa pelo modelo, interface, infraestrutura e decisões de operação.',
@@ -183,10 +180,10 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//
 
 export const workCases: WorkCase[] = [
   {
-    slug: 'magventure-platform',
+    slug: 'learning-intelligence-platform',
     kind: 'professional',
-    title: 'Magventure',
-    eyebrow: copy('Multi-product professional ecosystem', 'Ecossistema profissional multiproduto'),
+    title: 'Learning & Intelligence Platform',
+    eyebrow: copy('Case 01 · Professional system', 'Case 01 · Sistema profissional'),
     summary: copy(
       'Web, mobile, backend, search and operational surfaces evolving as one connected product ecosystem.',
       'Superfícies web, mobile, backend, busca e operação evoluindo como um ecossistema de produto conectado.',
@@ -284,10 +281,10 @@ export const workCases: WorkCase[] = [
     accent: 'orange',
   },
   {
-    slug: 'meu-auto-crm',
+    slug: 'automotive-crm-platform',
     kind: 'professional',
-    title: 'Meu Auto + CRM',
-    eyebrow: copy('Automotive marketplace and operations', 'Marketplace automotivo e operação'),
+    title: 'Automotive Marketplace & CRM Ecosystem',
+    eyebrow: copy('Case 02 · Professional system', 'Case 02 · Sistema profissional'),
     summary: copy(
       'A connected product journey from vehicle discovery and service requests to CRM conversations and operational follow-up.',
       'Uma jornada conectada da descoberta de veículos e solicitações de serviço às conversas no CRM e acompanhamento operacional.',
@@ -382,10 +379,10 @@ export const workCases: WorkCase[] = [
     accent: 'ink',
   },
   {
-    slug: 'softlave-operations',
+    slug: 'operations-platform',
     kind: 'professional',
-    title: 'SoftLave',
-    eyebrow: copy('Multi-surface operations platform', 'Plataforma operacional multissuperfície'),
+    title: 'Multi-Surface Operations Platform',
+    eyebrow: copy('Case 03 · Professional system', 'Case 03 · Sistema profissional'),
     summary: copy(
       'Administrative, point-of-sale and self-service surfaces connected to a TypeScript operations backend.',
       'Superfícies administrativa, ponto de venda e autoatendimento conectadas a um backend operacional em TypeScript.',
@@ -806,166 +803,6 @@ export const workCases: WorkCase[] = [
       ),
     ],
     accent: 'orange',
-  },
-  {
-    slug: 'time-bubble',
-    kind: 'independent',
-    title: 'TimeBubble',
-    eyebrow: copy('Android-native utility', 'Utilitário nativo para Android'),
-    summary: copy(
-      'A React Native control surface coordinating a native floating timer that stays useful beyond the app screen.',
-      'Uma interface React Native coordenando um timer flutuante nativo que continua útil fora da tela do app.',
-    ),
-    role: copy('Mobile product engineer', 'Engenheiro de produto mobile'),
-    period: '2025 — 2026',
-    sourceUrl: 'https://github.com/JRaamos/time-bubble',
-    disciplines: [
-      copy('Mobile UX', 'UX mobile'),
-      copy('Native boundary', 'Fronteira nativa'),
-      copy('Local state', 'Estado local'),
-    ],
-    stack: ['Expo', 'React Native', 'Reanimated', 'Android native module', 'AsyncStorage'],
-    challenge: copy(
-      'Keep a timer visible across Android applications while making permission and foreground-service state understandable to the user.',
-      'Manter um timer visível sobre apps Android tornando permissões e estado do serviço foreground compreensíveis para o usuário.',
-    ),
-    contribution: [
-      copy(
-        'Implemented start, pause, reset and appearance controls in React Native.',
-        'Implementei controles de início, pausa, reset e aparência em React Native.',
-      ),
-      copy(
-        'Connected the Expo surface to an Android native foreground overlay service.',
-        'Conectei a superfície Expo a um serviço nativo Android de overlay em foreground.',
-      ),
-      copy(
-        'Persisted user preferences and handled the overlay-permission journey explicitly.',
-        'Persisiti preferências do usuário e tratei explicitamente a jornada de permissão de overlay.',
-      ),
-    ],
-    architecture: [
-      {
-        label: copy('Control', 'Controle'),
-        value: copy('Expo / React Native interface', 'Interface Expo / React Native'),
-      },
-      {
-        label: copy('Bridge', 'Ponte'),
-        value: copy('Android native module', 'Módulo nativo Android'),
-      },
-      {
-        label: copy('Runtime', 'Execução'),
-        value: copy(
-          'Foreground service + floating overlay',
-          'Serviço foreground + overlay flutuante',
-        ),
-      },
-    ],
-    decisions: [
-      copy(
-        'Guard the cross-app overlay capability to Android instead of implying iOS parity.',
-        'Limitar o overlay entre apps ao Android em vez de sugerir paridade com iOS.',
-      ),
-      copy(
-        'Keep permission state and local preferences visible to the control surface.',
-        'Manter permissões e preferências locais visíveis para a interface de controle.',
-      ),
-    ],
-    quality: [
-      copy(
-        'Platform guards and build/update scripts exist; no automated test suite was observed.',
-        'Há proteções de plataforma e scripts de build/update; nenhuma suíte automatizada foi observada.',
-      ),
-    ],
-    evidence: [
-      copy(
-        'Source is public. Store publication, current device behavior and background guarantees across Android vendors are not claimed.',
-        'O código é público. Publicação em loja, comportamento atual em dispositivo e garantias de background entre fabricantes Android não são declarados.',
-      ),
-    ],
-    accent: 'orange',
-  },
-  {
-    slug: 'converse-com-amor',
-    kind: 'independent',
-    title: 'Converse com Amor',
-    eyebrow: copy('Collaborative real-time product', 'Produto colaborativo em tempo real'),
-    summary: copy(
-      'Anonymous multi-participant sessions with private role data, shared state and security enforced in the database.',
-      'Sessões anônimas com múltiplos participantes, dados privados por papel, estado compartilhado e segurança aplicada no banco.',
-    ),
-    role: copy(
-      'Product owner and full-stack engineer',
-      'Responsável pelo produto e engenharia full stack',
-    ),
-    period: '2026',
-    image: asset('projects/converse-com-amor.png'),
-    imageAlt: copy(
-      'Converse com Amor collaborative experience',
-      'Experiência colaborativa Converse com Amor',
-    ),
-    sourceUrl: 'https://github.com/JRaamos/Converse-com-amor',
-    disciplines: [
-      copy('Realtime product', 'Produto em tempo real'),
-      copy('Database security', 'Segurança no banco'),
-      copy('Operations', 'Operação'),
-    ],
-    stack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Playwright'],
-    challenge: copy(
-      'Synchronize a shared session while protecting each participant’s private information.',
-      'Sincronizar uma sessão compartilhada protegendo as informações privadas de cada participante.',
-    ),
-    contribution: [
-      copy(
-        'Implemented product flows, database schema, RLS, transactional RPCs, content tooling and operations documentation.',
-        'Implementei fluxos de produto, schema, RLS, RPCs transacionais, ferramentas de conteúdo e documentação operacional.',
-      ),
-    ],
-    architecture: [
-      {
-        label: copy('Experience', 'Experiência'),
-        value: copy(
-          'Next.js multi-participant application',
-          'Aplicação Next.js para múltiplos participantes',
-        ),
-      },
-      {
-        label: copy('Authority', 'Autoridade'),
-        value: copy(
-          'Supabase Auth · PostgreSQL · RLS · RPCs',
-          'Supabase Auth · PostgreSQL · RLS · RPCs',
-        ),
-      },
-      {
-        label: copy('Synchronization', 'Sincronização'),
-        value: copy(
-          'Realtime shared state with private boundaries',
-          'Estado compartilhado em tempo real com fronteiras privadas',
-        ),
-      },
-    ],
-    decisions: [
-      copy(
-        'Derive authority from authenticated database membership.',
-        'Derivar autoridade da associação autenticada no banco.',
-      ),
-      copy(
-        'Use transactional RPCs for critical mutations.',
-        'Usar RPCs transacionais para mutações críticas.',
-      ),
-    ],
-    quality: [
-      copy(
-        'Lint, types, content validation, database tests, Playwright E2E and a client-secret audit form the verification path.',
-        'Lint, tipos, validação de conteúdo, testes de banco, E2E Playwright e auditoria de segredos no cliente formam o caminho de verificação.',
-      ),
-    ],
-    evidence: [
-      copy(
-        'No public adoption, private session content or production usage metric is claimed.',
-        'Nenhuma adoção pública, conteúdo privado de sessões ou métrica de uso em produção é declarada.',
-      ),
-    ],
-    accent: 'sand',
   },
 ];
 
