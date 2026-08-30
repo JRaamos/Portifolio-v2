@@ -15,6 +15,14 @@ describe('Portfolio V3.1', () => {
       'href',
       '/work/learning-intelligence-platform',
     );
+    expect(screen.getByRole('link', { name: /converse com amor/i })).toHaveAttribute(
+      'href',
+      'https://github.com/JRaamos/Converse-com-amor',
+    );
+    expect(screen.getAllByRole('link', { name: /talk on whatsapp/i })[0]).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://wa.me/5511921404143'),
+    );
   });
 
   it('switches all product copy to Portuguese and updates document language', async () => {
@@ -50,5 +58,8 @@ describe('Portfolio V3.1', () => {
     expect(screen.getByRole('heading', { name: 'Crypto AI' })).toBeInTheDocument();
     await waitFor(() => expect(document.title).toContain('Crypto AI'));
     expect(screen.getByText(/deterministic analysis services/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: /crypto ai engineering architecture/i }),
+    ).toBeInTheDocument();
   });
 });

@@ -1,4 +1,6 @@
 import { AboutContact } from '../../components/v31/AboutContact';
+import { AdditionalProjects } from '../../components/v31/AdditionalProjects';
+import { AmbientSignalField } from '../../components/v31/AmbientSignalField';
 import { EngineeringModes } from '../../components/v31/EngineeringModes';
 import { Experience } from '../../components/v31/Experience';
 import { Header } from '../../components/v31/Header';
@@ -27,12 +29,14 @@ export function HomePage() {
 
   return (
     <div id="top" className="portfolio-v31">
+      <AmbientSignalField />
       <Header />
       <main>
         <Hero />
         <ProfessionalStory />
         <EngineeringModes />
         <ProductChapters />
+        <AdditionalProjects />
         <Experience />
         <AboutContact />
       </main>

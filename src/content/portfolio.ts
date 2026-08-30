@@ -1,4 +1,4 @@
-import type { ExperienceEntry, LocalizedText, WorkCase } from '../types/v3';
+import type { AdditionalProject, ExperienceEntry, LocalizedText, WorkCase } from '../types/v3';
 
 export const copy = (en: string, pt: string): LocalizedText => ({ en, pt });
 
@@ -113,12 +113,22 @@ export const siteCopy = {
       'Nos produtos independentes, assumo responsabilidade completa pelo modelo, interface, infraestrutura e decisões de operação.',
     ),
   },
+  additional: {
+    index: copy('04 / More public work', '04 / Mais projetos públicos'),
+    title: copy('Other systems worth opening.', 'Outros sistemas que vale a pena abrir.'),
+    intro: copy(
+      'A focused selection from my public repositories — chosen for product depth, technical boundaries and maintained delivery paths.',
+      'Uma seleção objetiva dos meus repositórios públicos — escolhida pela profundidade do produto, limites técnicos e caminhos de entrega mantidos.',
+    ),
+    source: copy('Inspect repository', 'Ver repositório'),
+    all: copy('Explore all public repositories', 'Explorar todos os repositórios públicos'),
+  },
   experience: {
-    index: copy('04 / Experience', '04 / Experiência'),
+    index: copy('05 / Experience', '05 / Experiência'),
     title: copy('A path shaped by ownership.', 'Uma trajetória guiada por responsabilidade.'),
   },
   about: {
-    index: copy('05 / Working principles', '05 / Princípios de trabalho'),
+    index: copy('06 / Working principles', '06 / Princípios de trabalho'),
     title: copy(
       'I like the part where the diagram meets reality.',
       'Eu gosto da parte em que o diagrama encontra a realidade.',
@@ -138,7 +148,7 @@ export const siteCopy = {
     ],
   },
   contact: {
-    index: copy('06 / Contact', '06 / Contato'),
+    index: copy('07 / Contact', '07 / Contato'),
     title: copy(
       'Need someone who can follow the work end to end?',
       'Precisa de alguém que acompanhe o trabalho de ponta a ponta?',
@@ -149,6 +159,7 @@ export const siteCopy = {
     ),
     email: copy('Start a conversation', 'Iniciar uma conversa'),
     github: copy('Inspect the code', 'Ver o código'),
+    whatsapp: copy('Talk on WhatsApp', 'Falar no WhatsApp'),
     availability: copy(
       'Available for full-time or contract conversations',
       'Disponível para conversas sobre posições integrais ou contratos',
@@ -165,6 +176,11 @@ export const siteCopy = {
     decisions: copy('Engineering decisions', 'Decisões de engenharia'),
     quality: copy('Quality and delivery', 'Qualidade e entrega'),
     evidence: copy('Evidence boundary', 'Limite da evidência'),
+    gallery: copy('Product views', 'Visões do produto'),
+    galleryNote: copy(
+      'Real interfaces and engineering material from the product.',
+      'Interfaces reais e material de engenharia do produto.',
+    ),
     live: copy('Open live product', 'Abrir produto'),
     source: copy('Inspect source', 'Ver código'),
     next: copy('Next case', 'Próximo case'),
@@ -493,8 +509,34 @@ export const workCases: WorkCase[] = [
       'Responsável pelo produto e engenharia full stack',
     ),
     period: '2025 — 2026',
-    image: asset('projects/febraio-tech.png'),
+    image: asset('projects/febraio-tech-home.png'),
     imageAlt: copy('FebraioTech commerce interface', 'Interface de comércio da FebraioTech'),
+    gallery: [
+      {
+        src: asset('projects/febraio-tech-home.png'),
+        alt: copy(
+          'FebraioTech public storefront home page',
+          'Página inicial pública da loja FebraioTech',
+        ),
+        label: copy('Live storefront', 'Loja pública'),
+      },
+      {
+        src: asset('projects/febraio-tech-catalog.png'),
+        alt: copy(
+          'FebraioTech product catalog with filters and product cards',
+          'Catálogo da FebraioTech com filtros e produtos',
+        ),
+        label: copy('Product discovery', 'Descoberta de produtos'),
+      },
+      {
+        src: asset('projects/febraio-tech-product.png'),
+        alt: copy(
+          'FebraioTech product detail with gallery, price and delivery options',
+          'Detalhe de produto da FebraioTech com galeria, preço e opções de entrega',
+        ),
+        label: copy('Purchase detail', 'Detalhe de compra'),
+      },
+    ],
     liveUrl: 'https://www.febraiotech.com.br/',
     disciplines: [
       copy('Product architecture', 'Arquitetura de produto'),
@@ -578,11 +620,29 @@ export const workCases: WorkCase[] = [
       'Responsável pelo produto e engenharia full stack',
     ),
     period: '2025 — 2026',
-    image: asset('projects/manual-dos-achados.png'),
+    image: asset('projects/manual-dos-achados-home.png'),
     imageAlt: copy(
       'Manual dos Achados editorial rankings',
       'Rankings editoriais do Manual dos Achados',
     ),
+    gallery: [
+      {
+        src: asset('projects/manual-dos-achados-home.png'),
+        alt: copy(
+          'Manual dos Achados editorial home page',
+          'Página inicial editorial do Manual dos Achados',
+        ),
+        label: copy('Editorial discovery', 'Descoberta editorial'),
+      },
+      {
+        src: asset('projects/manual-dos-achados-how-it-works.png'),
+        alt: copy(
+          'Manual dos Achados explanation of its research and recommendation process',
+          'Explicação do processo de pesquisa e recomendação do Manual dos Achados',
+        ),
+        label: copy('Reader trust model', 'Modelo de confiança do leitor'),
+      },
+    ],
     liveUrl: 'https://www.manualdosachados.com.br/',
     sourceUrl: 'https://github.com/JRaamos/guide-to-findings-front-end',
     disciplines: [
@@ -665,6 +725,24 @@ export const workCases: WorkCase[] = [
       'Crypto AI controlled research dashboard',
       'Painel controlado de pesquisa do Crypto AI',
     ),
+    gallery: [
+      {
+        src: asset('projects/crypto-ai.png'),
+        alt: copy(
+          'Crypto AI controlled market analysis dashboard',
+          'Painel controlado de análise de mercado do Crypto AI',
+        ),
+        label: copy('Controlled analysis', 'Análise controlada'),
+      },
+      {
+        src: asset('projects/crypto-ai-engineering.png'),
+        alt: copy(
+          'Crypto AI engineering architecture and safety boundaries',
+          'Arquitetura de engenharia e limites de segurança do Crypto AI',
+        ),
+        label: copy('Architecture and guardrails', 'Arquitetura e proteções'),
+      },
+    ],
     disciplines: [
       copy('Backend architecture', 'Arquitetura backend'),
       copy('AI boundary', 'Fronteira de IA'),
@@ -746,6 +824,24 @@ export const workCases: WorkCase[] = [
       'BuildBalance dashboard with demonstration data',
       'Painel BuildBalance com dados de demonstração',
     ),
+    gallery: [
+      {
+        src: asset('projects/buildbalance.png'),
+        alt: copy(
+          'BuildBalance financial workspace with demonstration data',
+          'Espaço financeiro do BuildBalance com dados de demonstração',
+        ),
+        label: copy('Financial workspace', 'Espaço financeiro'),
+      },
+      {
+        src: asset('projects/buildbalance-engineering.png'),
+        alt: copy(
+          'BuildBalance domain architecture and financial safeguards',
+          'Arquitetura de domínio e proteções financeiras do BuildBalance',
+        ),
+        label: copy('Domain architecture', 'Arquitetura de domínio'),
+      },
+    ],
     sourceUrl: 'https://github.com/JRaamos/BuildBalance',
     disciplines: [
       copy('Domain modeling', 'Modelagem de domínio'),
@@ -803,6 +899,39 @@ export const workCases: WorkCase[] = [
       ),
     ],
     accent: 'orange',
+  },
+];
+
+export const additionalProjects: AdditionalProject[] = [
+  {
+    title: 'Converse com Amor',
+    summary: copy(
+      'A collaborative real-time training product with anonymous sessions, row-level security and end-to-end validation.',
+      'Um produto colaborativo de treinamento em tempo real com sessões anônimas, segurança por linha e validação ponta a ponta.',
+    ),
+    stack: ['Next.js 16', 'React 19', 'Supabase', 'Realtime', 'Playwright'],
+    sourceUrl: 'https://github.com/JRaamos/Converse-com-amor',
+    flow: ['SESSION', 'REALTIME', 'RLS'],
+  },
+  {
+    title: 'TimeBubble',
+    summary: copy(
+      'A focused mobile timer with persistent device state, platform-aware foreground behavior, EAS builds and OTA delivery.',
+      'Um cronômetro mobile focado, com estado persistente no dispositivo, comportamento em primeiro plano por plataforma, builds EAS e entrega OTA.',
+    ),
+    stack: ['React Native', 'Expo 54', 'Reanimated', 'AsyncStorage', 'EAS'],
+    sourceUrl: 'https://github.com/JRaamos/time-bubble',
+    flow: ['TIMER', 'DEVICE', 'DELIVERY'],
+  },
+  {
+    title: 'Congress Time',
+    summary: copy(
+      'A responsive schedule companion with browser-local persistence and portable JSON backup and restore.',
+      'Um companheiro responsivo de agenda com persistência local no navegador e backup e restauração portáteis em JSON.',
+    ),
+    stack: ['React 19', 'Vite', 'React Router', 'Styled Components', 'Node Test'],
+    sourceUrl: 'https://github.com/JRaamos/congress-time-web',
+    flow: ['SCHEDULE', 'LOCAL DATA', 'BACKUP'],
   },
 ];
 

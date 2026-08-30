@@ -1,6 +1,7 @@
 import { siteCopy } from '../../content/portfolio';
 import { useLocale } from '../../context/useLocale';
 import { OptimizedImage } from './OptimizedImage';
+import { whatsappUrl } from './WhatsAppButton';
 
 export function AboutContact() {
   const { text, locale } = useLocale();
@@ -38,6 +39,9 @@ export function AboutContact() {
           <a href="mailto:jhonyramos46@gmail.com">{text(siteCopy.contact.email)} ↗</a>
           <a href="https://github.com/JRaamos" target="_blank" rel="noreferrer">
             {text(siteCopy.contact.github)} ↗
+          </a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">
+            {text(siteCopy.contact.whatsapp)} ↗
           </a>
         </div>
         <small>

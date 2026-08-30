@@ -23,7 +23,13 @@ export function Header() {
         aria-label="Jonathan Febraio — home"
         onClick={() => setOpen(false)}
       >
-        <span>JF</span>
+        <img
+          src={`${import.meta.env.BASE_URL}brand/jf-mark.svg`}
+          alt=""
+          width="36"
+          height="36"
+          aria-hidden="true"
+        />
         <i aria-hidden="true" />
       </Link>
       <nav className="desktop-nav-v31" aria-label="Primary navigation">

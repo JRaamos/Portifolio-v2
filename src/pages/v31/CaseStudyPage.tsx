@@ -114,6 +114,18 @@ export function CaseStudyPage() {
 
   if (!work) return <Navigate replace to="/404" />;
 
+  const productGallery =
+    work.gallery ??
+    (work.image
+      ? [
+          {
+            src: work.image,
+            alt: work.imageAlt ?? { en: `${work.title} interface`, pt: `Interface ${work.title}` },
+            label: work.eyebrow,
+          },
+        ]
+      : []);
+
   const currentIndex = workCases.findIndex((item) => item.slug === work.slug);
   const nextWork = workCases[(currentIndex + 1) % workCases.length];
   const chapters = [
@@ -180,15 +192,37 @@ export function CaseStudyPage() {
           </dl>
         </section>
 
-        {work.image ? (
-          <section className="case-product-media-v31">
-            <OptimizedImage
-              src={work.image}
-              alt={work.imageAlt ? text(work.imageAlt) : `${work.title} interface`}
-              width={1280}
-              height={720}
-              loading="eager"
-            />
+        {productGallery.length ? (
+          <section
+            className="case-product-media-v31"
+            aria-labelledby="case-product-gallery-title-v31"
+          >
+            <header className="case-gallery-heading-v31">
+              <p id="case-product-gallery-title-v31">{text(siteCopy.case.gallery)}</p>
+              <span>{text(siteCopy.case.galleryNote)}</span>
+            </header>
+            <div className="case-product-gallery-v31">
+              {productGallery.map((item, index) => (
+                <figure
+                  className={
+                    index === 0 ? 'case-product-view-v31 is-primary' : 'case-product-view-v31'
+                  }
+                  key={item.src}
+                >
+                  <OptimizedImage
+                    src={item.src}
+                    alt={text(item.alt)}
+                    width={index === 0 ? 1425 : 1200}
+                    height={index === 0 ? 802 : 675}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                  <figcaption>
+                    <span>0{index + 1}</span>
+                    {text(item.label)}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </section>
         ) : null}
 

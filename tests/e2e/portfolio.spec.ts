@@ -53,6 +53,10 @@ test('opens a case route, survives direct refresh and exposes safe evidence', as
   await expect(page.getByRole('heading', { name: 'Crypto AI' })).toBeVisible();
   await expect(page).toHaveTitle(/Crypto AI/);
   await expect(page.getByText(/never give the model execution authority/i)).toBeVisible();
+  await expect(
+    page.getByRole('img', { name: /crypto ai engineering architecture/i }),
+  ).toBeVisible();
+  await expect(page.locator('.case-product-view-v31')).toHaveCount(2);
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Crypto AI' })).toBeVisible();
 });
@@ -90,6 +94,48 @@ test('mobile menu, external-link safety and touch targets work', async ({ page }
       .filter((item) => item.width > 0 && item.height > 0 && (item.width < 44 || item.height < 44)),
   );
   expect(undersized).toEqual([]);
+});
+
+test('public repository references and WhatsApp contact are wired safely', async ({ page }) => {
+  await expect(page.getByRole('link', { name: /converse com amor/i })).toHaveAttribute(
+    'href',
+    'https://github.com/JRaamos/Converse-com-amor',
+  );
+  const whatsappLinks = page.locator('a[href^="https://wa.me/5511921404143"]');
+  await expect(whatsappLinks).toHaveCount(2);
+  for (const link of await whatsappLinks.all()) {
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', /noreferrer/);
+  }
+});
+
+test('fine-pointer motion responds to the cursor without becoming content state', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const field = page.locator('.ambient-signal-v31');
+  const beforePointer = await field.evaluate((element) =>
+    element.style.getPropertyValue('--ambient-x'),
+  );
+  await page.mouse.move(420, 260);
+  await page.waitForTimeout(80);
+  const afterPointer = await field.evaluate((element) =>
+    element.style.getPropertyValue('--ambient-x'),
+  );
+  expect(afterPointer).not.toBe(beforePointer);
+
+  const project = page.locator('.additional-project-v31').first();
+  await project.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1_000);
+  const beforeHover = await project.evaluate(
+    (element) => getComputedStyle(element, '::before').transform,
+  );
+  await project.hover();
+  await page.waitForTimeout(700);
+  const afterHover = await project.evaluate(
+    (element) => getComputedStyle(element, '::before').transform,
+  );
+  expect(afterHover).not.toBe(beforeHover);
 });
 
 test('reduced motion exposes content without long transitions', async ({ page }) => {

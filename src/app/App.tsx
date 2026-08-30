@@ -4,6 +4,7 @@ import { LocaleProvider } from '../context/LocaleProvider';
 import { CaseStudyPage } from '../pages/v31/CaseStudyPage';
 import { HomePage } from '../pages/v31/HomePage';
 import { NotFoundPage } from '../pages/v31/NotFoundPage';
+import { WhatsAppButton } from '../components/v31/WhatsAppButton';
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -26,6 +27,7 @@ export function App() {
     <BrowserRouter basename={basename}>
       <LocaleProvider>
         <ScrollManager />
+        <WhatsAppButton />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/work/:slug" element={<CaseStudyPage />} />

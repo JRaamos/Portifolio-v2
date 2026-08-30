@@ -4,6 +4,12 @@ export type LocalizedText = Record<Locale, string>;
 
 export type WorkKind = 'professional' | 'independent';
 
+export interface WorkGalleryItem {
+  src: string;
+  alt: LocalizedText;
+  label: LocalizedText;
+}
+
 export interface WorkCase {
   slug: string;
   kind: WorkKind;
@@ -14,6 +20,7 @@ export interface WorkCase {
   period: string;
   image?: string;
   imageAlt?: LocalizedText;
+  gallery?: WorkGalleryItem[];
   liveUrl?: string;
   sourceUrl?: string;
   sourceLabel?: LocalizedText;
@@ -30,6 +37,14 @@ export interface WorkCase {
   evidence: LocalizedText[];
   confidentiality?: LocalizedText;
   accent: 'orange' | 'ink' | 'sand';
+}
+
+export interface AdditionalProject {
+  title: string;
+  summary: LocalizedText;
+  stack: string[];
+  sourceUrl: string;
+  flow: string[];
 }
 
 export interface ExperienceEntry {
