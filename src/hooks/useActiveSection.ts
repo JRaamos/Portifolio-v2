@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export function useActiveSection(sectionIds: readonly string[]) {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string | null>(() => {
+    const hashSection = window.location.hash.slice(1);
+    return sectionIds.some((sectionId) => sectionId === hashSection) ? hashSection : null;
+  });
   const key = sectionIds.join('|');
+  const selectSection = useCallback((sectionId: string) => setActiveSection(sectionId), []);
 
   useEffect(() => {
     const sections = sectionIds
@@ -26,5 +30,5 @@ export function useActiveSection(sectionIds: readonly string[]) {
     return () => observer.disconnect();
   }, [key, sectionIds]);
 
-  return activeSection;
+  return { activeSection, selectSection };
 }

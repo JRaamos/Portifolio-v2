@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
-describe('Portfolio V3.2', () => {
+describe('Portfolio V3.3', () => {
   it('renders the English-first system narrative and professional work', () => {
     render(<App />);
     expect(screen.getByRole('img', { name: 'JF Signal' })).toBeInTheDocument();
@@ -13,6 +13,7 @@ describe('Portfolio V3.2', () => {
     expect(screen.getByRole('navigation', { name: /primary navigation/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /let’s talk/i })).toHaveAttribute('href', '/#contact');
     expect(screen.getByRole('heading', { name: 'Jonathan Febraio' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Crypto AI', level: 3 })).toBeInTheDocument();
     expect(
       screen.getByRole('heading', {
         name: /engineering contributions delivered through x-apps/i,
@@ -78,6 +79,17 @@ describe('Portfolio V3.2', () => {
     );
   });
 
+  it('explains architecture boundaries and foregrounds JavaScript without erasing TypeScript', () => {
+    render(<App />);
+    expect(
+      screen.queryByText(/react native journeys share service contracts/i),
+    ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /explain mobile/i }));
+    expect(screen.getByText(/react native journeys share service contracts/i)).toBeInTheDocument();
+    expect(screen.getAllByText('JavaScript').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('TypeScript').length).toBeGreaterThan(0);
+  });
+
   it('marks the section reported by IntersectionObserver as the active navigation item', async () => {
     const OriginalIntersectionObserver = window.IntersectionObserver;
     class ActiveSectionObserver {
@@ -135,7 +147,7 @@ describe('Portfolio V3.2', () => {
   it('renders a direct case route with a case-specific title', async () => {
     window.history.replaceState({}, '', '/work/crypto-ai');
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'Crypto AI' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Crypto AI', level: 1 })).toBeInTheDocument();
     await waitFor(() => expect(document.title).toContain('Crypto AI'));
     expect(screen.getByRole('link', { name: /back to work/i })).toHaveAttribute('href', '/#work');
     expect(screen.getByText(/deterministic analysis services/i)).toBeInTheDocument();

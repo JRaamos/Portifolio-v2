@@ -8,6 +8,7 @@ export interface WorkGalleryItem {
   src: string;
   alt: LocalizedText;
   label: LocalizedText;
+  fit?: 'cover' | 'contain';
 }
 
 export interface WorkCase {
@@ -20,6 +21,8 @@ export interface WorkCase {
   period: string;
   image?: string;
   imageAlt?: LocalizedText;
+  imageFit?: 'cover' | 'contain';
+  preview?: 'default' | 'mobile-trio';
   gallery?: WorkGalleryItem[];
   liveUrl?: string;
   sourceUrl?: string;

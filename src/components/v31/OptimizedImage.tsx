@@ -15,13 +15,14 @@ export function OptimizedImage({
   width,
   height,
 }: OptimizedImageProps) {
-  const webp = src.replace(/\.png$/i, '.webp');
-  const avif = src.replace(/\.png$/i, '.avif');
+  const hasGeneratedVariants = /\.png$/i.test(src);
+  const webp = hasGeneratedVariants ? src.replace(/\.png$/i, '.webp') : null;
+  const avif = hasGeneratedVariants ? src.replace(/\.png$/i, '.avif') : null;
 
   return (
     <picture className={className}>
-      <source srcSet={avif} type="image/avif" />
-      <source srcSet={webp} type="image/webp" />
+      {avif ? <source srcSet={avif} type="image/avif" /> : null}
+      {webp ? <source srcSet={webp} type="image/webp" /> : null}
       <img src={src} alt={alt} loading={loading} decoding="async" width={width} height={height} />
     </picture>
   );

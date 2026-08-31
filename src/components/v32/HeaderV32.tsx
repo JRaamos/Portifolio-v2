@@ -13,7 +13,7 @@ export function HeaderV32() {
   const { pathname } = useLocation();
   const { text, locale } = useLocale();
   const scrolled = useHeaderState();
-  const activeSection = useActiveSection(sectionIds);
+  const { activeSection, selectSection } = useActiveSection(sectionIds);
   const [open, setOpen] = useState(false);
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [indicator, setIndicator] = useState({ x: 0, width: 0, visible: false });
@@ -139,6 +139,7 @@ export function HeaderV32() {
               }}
               aria-current={activeSection === link.id ? 'location' : undefined}
               onMouseEnter={() => setHoveredSection(link.id)}
+              onClick={() => selectSection(link.id)}
             >
               {link.label}
             </Link>
@@ -182,7 +183,10 @@ export function HeaderV32() {
               key={link.id}
               to={link.href}
               aria-current={activeSection === link.id ? 'location' : undefined}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                selectSection(link.id);
+                setOpen(false);
+              }}
             >
               <span>0{index + 1}</span>
               <strong>{link.label}</strong>

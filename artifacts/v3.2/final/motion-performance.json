@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-08-30T22:46:20.002Z",
+  "measuredAt": "2026-08-31T04:00:43.282Z",
   "url": "http://127.0.0.1:4173/Portifolio-v2/",
   "viewport": {
     "width": 1440,
@@ -7,24 +7,24 @@
   },
   "target": "canvas[data-signal-field=\"hero\"]",
   "frames": {
-    "durationMs": 3006.6000000000004,
-    "frames": 226,
-    "fps": 74.83536220315305,
-    "medianFrameIntervalMs": 11.700000000000273,
-    "droppedFrames": 25,
-    "intervalsOverBudget": 25,
-    "maximumFrameIntervalMs": 27.199999999999818,
+    "durationMs": 3007.2,
+    "frames": 243,
+    "fps": 80.47353019420059,
+    "medianFrameIntervalMs": 10.799999999999727,
+    "droppedFrames": 45,
+    "intervalsOverBudget": 36,
+    "maximumFrameIntervalMs": 27.300000000000182,
     "longTaskCount": 0,
     "longTaskDurationMs": 0
   },
   "cpu": {
-    "taskDurationMs": 222.06699999999998,
-    "scriptDurationMs": 40.665,
+    "taskDurationMs": 203.681,
+    "scriptDurationMs": 36.901999999999994,
     "layoutDurationMs": 0,
-    "recalcStyleDurationMs": 28.395
+    "recalcStyleDurationMs": 26.497
   },
   "memory": {
-    "jsHeapUsedBytes": 6309212,
-    "jsHeapTotalBytes": 11665408
+    "jsHeapUsedBytes": 6625360,
+    "jsHeapTotalBytes": 11403264
   }
 }

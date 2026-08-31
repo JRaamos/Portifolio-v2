@@ -1,12 +1,11 @@
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteCopy } from '../../content/portfolio';
 import { useLocale } from '../../context/useLocale';
 import { SignalCanvas } from '../v32/SignalCanvas';
 import { heroSignalScene } from '../v32/signalScenes';
-
-gsap.registerPlugin(ScrollTrigger);
+import { AnimatedCharacters } from '../v33/AnimatedCharacters';
+import { SignalNodeInspector } from '../v33/SignalNodeInspector';
 
 const heroPhases = ['IDEA', 'INTERFACE', 'API', 'LOGIC', 'DATA', 'DELIVERY'];
 
@@ -27,11 +26,13 @@ export function Hero() {
         },
         ({ conditions }) => {
           const reduced = Boolean(conditions?.reduce);
-          const titleLines = gsap.utils.toArray<HTMLElement>('.hero-title-v31 span');
+          const titleCharacters = gsap.utils.toArray<HTMLElement>(
+            '.hero-title-v31 .animated-characters-v33__character',
+          );
           const phases = gsap.utils.toArray<HTMLElement>('.hero-phase-v31');
 
           if (reduced) {
-            gsap.set([titleLines, '.hero-support-v31', '.hero-actions-v31'], {
+            gsap.set([titleCharacters, '.hero-support-v31', '.hero-actions-v31'], {
               clearProps: 'all',
               autoAlpha: 1,
             });
@@ -41,7 +42,14 @@ export function Hero() {
 
           const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
           intro
-            .from(titleLines, { yPercent: 112, duration: 0.9, stagger: 0.1 })
+            .from(titleCharacters, {
+              yPercent: 115,
+              autoAlpha: 0,
+              rotateX: -72,
+              transformOrigin: '50% 100%',
+              duration: 0.62,
+              stagger: 0.035,
+            })
             .from('.hero-role-v31', { clipPath: 'inset(0 100% 0 0)', duration: 0.55 }, 0.15)
             .from('.hero-support-v31', { clipPath: 'inset(0 0 100% 0)', duration: 0.65 }, 0.4)
             .from('.hero-actions-v31', { clipPath: 'inset(0 100% 0 0)', duration: 0.55 }, 0.52)
@@ -50,26 +58,6 @@ export function Hero() {
               { autoAlpha: 0, scale: 0.985, transformOrigin: 'center', duration: 0.9 },
               0.28,
             );
-
-          const scroll = gsap.timeline({
-            scrollTrigger: {
-              trigger: root,
-              start: 'top top',
-              end: 'bottom bottom',
-              scrub: 0.55,
-            },
-          });
-
-          phases.forEach((phase, index) => {
-            scroll
-              .to(phases, { color: '#7f8998', duration: 0.08 }, index)
-              .to(phase, { color: '#dcecff', x: 8, duration: 0.1 }, index);
-          });
-          scroll.to(
-            '.hero-signal-canvas-v32',
-            { scale: 1.035, transformOrigin: '52% 47%', duration: 0.8 },
-            4.8,
-          );
         },
       );
       return () => media.revert();
@@ -86,8 +74,13 @@ export function Hero() {
             <span>01</span> Software Engineer
           </p>
           <h1 className="hero-title-v31" id="hero-title-v31" aria-label={text(siteCopy.hero.title)}>
-            <span>Jonathan</span>
-            <span>Febraio</span>
+            <span className="hero-title-v31__line">
+              <AnimatedCharacters text="Jonathan" />
+            </span>
+            <span className="hero-title-v31__line hero-title-v31__line--outline">
+              <AnimatedCharacters text="Febraio" />
+              <i className="hero-title-v31__caret" aria-hidden="true" />
+            </span>
           </h1>
           <p className="hero-support-v31">{text(siteCopy.hero.intro)}</p>
           <div className="hero-actions-v31">
@@ -110,6 +103,7 @@ export function Hero() {
           aria-label="Product request travelling through a complete software system"
         >
           <SignalCanvas scene={heroSignalScene} variant="hero" className="hero-signal-canvas-v32" />
+          <SignalNodeInspector scene={heroSignalScene} variant="hero" />
           <span className="sr-only-v32">
             Product, web and mobile requests pass through API, backend, AI, data and delivery
             boundaries.

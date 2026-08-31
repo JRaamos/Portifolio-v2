@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { LocaleProvider } from '../context/LocaleProvider';
 import { CaseStudyPage } from '../pages/v31/CaseStudyPage';
 import { HomePage } from '../pages/v31/HomePage';
@@ -9,9 +9,25 @@ import { WhatsAppButton } from '../components/v31/WhatsAppButton';
 function ScrollManager() {
   const { pathname, hash } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (hash) {
-      window.requestAnimationFrame(() => document.querySelector(hash)?.scrollIntoView());
+      const targetId = hash.slice(1);
+      const scrollToHash = () => {
+        document.getElementById(targetId)?.scrollIntoView({ block: 'start', behavior: 'auto' });
+      };
+
+      scrollToHash();
+      let nestedFrame = 0;
+      const frame = window.requestAnimationFrame(() => {
+        scrollToHash();
+        nestedFrame = window.requestAnimationFrame(() => {
+          scrollToHash();
+        });
+      });
+      return () => {
+        window.cancelAnimationFrame(frame);
+        window.cancelAnimationFrame(nestedFrame);
+      };
     } else {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }

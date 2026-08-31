@@ -134,8 +134,8 @@ export const siteCopy = {
       'Eu gosto da parte em que o diagrama encontra a realidade.',
     ),
     body: copy(
-      'I am a Brazil-based Software Engineer focused on TypeScript products across backend, web and mobile. I care about legible architecture, secure boundaries, useful interfaces and verification that survives beyond a demo.',
-      'Sou Engenheiro de Software no Brasil, focado em produtos TypeScript entre backend, web e mobile. Valorizo arquitetura legível, fronteiras seguras, interfaces úteis e verificações que sobrevivem além da demonstração.',
+      'I am a Brazil-based, JavaScript-first Software Engineer working across backend, web and mobile, using TypeScript where stronger contracts improve the system. I care about legible architecture, secure boundaries, useful interfaces and verification that survives beyond a demo.',
+      'Sou Engenheiro de Software no Brasil, com JavaScript como base entre backend, web e mobile, usando TypeScript quando contratos mais fortes melhoram o sistema. Valorizo arquitetura legível, fronteiras seguras, interfaces úteis e verificações que sobrevivem além da demonstração.',
     ),
     principles: [
       copy('Make the business rule explicit.', 'Tornar a regra de negócio explícita.'),
@@ -214,7 +214,16 @@ export const workCases: WorkCase[] = [
       copy('Mobile', 'Mobile'),
       copy('Backend + integrations', 'Backend + integrações'),
     ],
-    stack: ['TypeScript', 'React', 'React Native', 'Strapi 5', 'Qdrant', 'FastAPI', 'CI/CD'],
+    stack: [
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'React Native',
+      'Strapi 5',
+      'Qdrant',
+      'FastAPI',
+      'CI/CD',
+    ],
     challenge: copy(
       'Evolve multiple client and operational surfaces without treating each repository as an isolated product.',
       'Evoluir múltiplas superfícies de cliente e operação sem tratar cada repositório como um produto isolado.',
@@ -809,6 +818,270 @@ export const workCases: WorkCase[] = [
     accent: 'ink',
   },
   {
+    slug: 'timebubble',
+    kind: 'independent',
+    title: 'TimeBubble',
+    eyebrow: copy('Published Android utility', 'Utilitário Android publicado'),
+    summary: copy(
+      'A published floating timer that stays visible over other Android apps and connects a JavaScript product surface to a native foreground service.',
+      'Um cronômetro flutuante publicado que permanece visível sobre outros apps Android e conecta uma superfície em JavaScript a um serviço nativo em primeiro plano.',
+    ),
+    role: copy('Product owner and mobile engineer', 'Responsável pelo produto e engenharia mobile'),
+    period: '2026 — Present',
+    image: asset('projects/timebubble-home.webp'),
+    imageAlt: copy(
+      'TimeBubble floating timer control screen from Google Play',
+      'Tela de controle do cronômetro flutuante TimeBubble na Google Play',
+    ),
+    imageFit: 'contain',
+    preview: 'mobile-trio',
+    gallery: [
+      {
+        src: asset('projects/timebubble-home.webp'),
+        alt: copy(
+          'Published TimeBubble home screen with floating timer controls',
+          'Tela inicial publicada do TimeBubble com controles do cronômetro flutuante',
+        ),
+        label: copy('Published product', 'Produto publicado'),
+        fit: 'contain',
+      },
+      {
+        src: asset('projects/timebubble-status.webp'),
+        alt: copy(
+          'TimeBubble permission, overlay and timer state screen',
+          'Tela de permissões, sobreposição e estado do cronômetro do TimeBubble',
+        ),
+        label: copy('Device state', 'Estado do dispositivo'),
+        fit: 'contain',
+      },
+      {
+        src: asset('projects/timebubble-customization.webp'),
+        alt: copy(
+          'TimeBubble floating card color customization screen',
+          'Tela de personalização de cores do card flutuante TimeBubble',
+        ),
+        label: copy('Native customization', 'Personalização nativa'),
+        fit: 'contain',
+      },
+    ],
+    liveUrl: 'https://play.google.com/store/apps/details?id=br.com.jonathanfebraio.timebubble',
+    sourceUrl: 'https://github.com/JRaamos/time-bubble',
+    sourceLabel: copy('Inspect mobile source', 'Ver código mobile'),
+    disciplines: [
+      copy('Mobile product', 'Produto mobile'),
+      copy('React Native + Android', 'React Native + Android'),
+      copy('Store delivery', 'Entrega na loja'),
+    ],
+    stack: [
+      'JavaScript',
+      'React Native',
+      'Expo 54',
+      'Kotlin',
+      'Android Foreground Service',
+      'AsyncStorage',
+      'EAS',
+    ],
+    challenge: copy(
+      'Keep a timer visible and controllable across other Android apps without depending on an account or remote backend.',
+      'Manter um cronômetro visível e controlável sobre outros apps Android sem depender de conta ou backend remoto.',
+    ),
+    contribution: [
+      copy(
+        'Built the React Native control surface, persistent preferences and explicit permission states.',
+        'Construí a superfície de controle em React Native, preferências persistentes e estados explícitos de permissão.',
+      ),
+      copy(
+        'Implemented the native Android overlay and foreground-service boundary for background continuity.',
+        'Implementei a sobreposição nativa Android e a fronteira de serviço em primeiro plano para continuidade em background.',
+      ),
+      copy(
+        'Prepared production delivery through Expo/EAS and published the Android product through Google Play.',
+        'Preparei a entrega de produção com Expo/EAS e publiquei o produto Android na Google Play.',
+      ),
+    ],
+    architecture: [
+      {
+        label: copy('Product surface', 'Superfície do produto'),
+        value: copy('JavaScript + React Native controls', 'Controles em JavaScript + React Native'),
+      },
+      {
+        label: copy('Native boundary', 'Fronteira nativa'),
+        value: copy(
+          'Kotlin overlay + Android foreground service',
+          'Sobreposição Kotlin + serviço Android em primeiro plano',
+        ),
+      },
+      {
+        label: copy('Device state', 'Estado do dispositivo'),
+        value: copy(
+          'Local preferences, lifecycle and explicit permissions',
+          'Preferências locais, ciclo de vida e permissões explícitas',
+        ),
+      },
+    ],
+    decisions: [
+      copy(
+        'Keep timer preferences and product state on the device.',
+        'Manter preferências e estado do cronômetro no dispositivo.',
+      ),
+      copy(
+        'Treat Android overlay permission as a visible product state.',
+        'Tratar a permissão de sobreposição Android como estado visível do produto.',
+      ),
+      copy(
+        'Use a native foreground service where the mobile lifecycle demands platform authority.',
+        'Usar um serviço nativo em primeiro plano onde o ciclo mobile exige autoridade da plataforma.',
+      ),
+    ],
+    quality: [
+      copy(
+        'The public source exposes the React Native-to-Kotlin boundary, lifecycle handling and production build configuration.',
+        'O código público expõe a fronteira React Native–Kotlin, o tratamento do ciclo de vida e a configuração de build de produção.',
+      ),
+      copy(
+        'No passing automated test suite is claimed for the current repository snapshot.',
+        'Nenhuma suíte automatizada aprovada é declarada para o snapshot atual do repositório.',
+      ),
+    ],
+    evidence: [
+      copy(
+        'Google Play currently lists the product as “Cronômetro Flutuante” by Febraio Tecnologia; the portfolio keeps TimeBubble as the project name and links the exact package.',
+        'A Google Play lista atualmente o produto como “Cronômetro Flutuante”, da Febraio Tecnologia; o portfólio mantém TimeBubble como nome do projeto e vincula o pacote exato.',
+      ),
+      copy(
+        'The gallery uses the real screenshots served by the published Google Play listing.',
+        'A galeria usa capturas reais servidas pela publicação na Google Play.',
+      ),
+    ],
+    accent: 'ink',
+  },
+  {
+    slug: 'sistema-de-agendamento',
+    kind: 'independent',
+    title: 'Sistema de Agendamento',
+    eyebrow: copy('Full-stack scheduling system', 'Sistema full stack de agendamento'),
+    summary: copy(
+      'A barber scheduling system connecting customer availability, authenticated operations, dashboard views and Google Calendar integration.',
+      'Um sistema de agendamento para barbearia conectando disponibilidade do cliente, operação autenticada, dashboards e integração com Google Calendar.',
+    ),
+    role: copy('Full-stack engineer', 'Engenheiro full stack'),
+    period: '2023 — 2024',
+    image: asset('projects/scheduling-system-product.svg'),
+    imageAlt: copy(
+      'Source-verified product view of the scheduling system',
+      'Visão de produto verificada no código do sistema de agendamento',
+    ),
+    gallery: [
+      {
+        src: asset('projects/scheduling-system-product.svg'),
+        alt: copy(
+          'Scheduling product view with calendar, service flow and dashboard',
+          'Visão do produto com calendário, fluxo de serviços e dashboard',
+        ),
+        label: copy('Product surfaces', 'Superfícies do produto'),
+      },
+      {
+        src: asset('projects/scheduling-system-engineering.svg'),
+        alt: copy(
+          'Scheduling system architecture from React to Express, MySQL and Google Calendar',
+          'Arquitetura do sistema de React a Express, MySQL e Google Calendar',
+        ),
+        label: copy('Full-stack architecture', 'Arquitetura full stack'),
+      },
+      {
+        src: asset('projects/scheduling-system-logo.png'),
+        alt: copy('Original Stylus scheduling system logo', 'Logo original do sistema Stylus'),
+        label: copy('Original product identity', 'Identidade original do produto'),
+        fit: 'contain',
+      },
+    ],
+    sourceUrl: 'https://github.com/JRaamos/Sistema-de-Agendamento',
+    disciplines: [
+      copy('Scheduling UX', 'UX de agendamento'),
+      copy('Backend + authentication', 'Backend + autenticação'),
+      copy('Operational dashboard', 'Dashboard operacional'),
+    ],
+    stack: [
+      'React',
+      'TypeScript',
+      'Express',
+      'MySQL',
+      'Sequelize',
+      'FullCalendar',
+      'Google Calendar API',
+      'Mocha',
+    ],
+    challenge: copy(
+      'Coordinate customer bookings, service duration, professional availability and operational visibility through one client-server workflow.',
+      'Coordenar reservas do cliente, duração dos serviços, disponibilidade profissional e visibilidade operacional em um único fluxo cliente-servidor.',
+    ),
+    contribution: [
+      copy(
+        'Built customer booking, schedule review and cancellation journeys around calendar availability.',
+        'Construí jornadas de reserva, revisão de agenda e cancelamento a partir da disponibilidade no calendário.',
+      ),
+      copy(
+        'Implemented Express services, JWT authentication and Sequelize models for schedules, services and operational rules.',
+        'Implementei serviços Express, autenticação JWT e modelos Sequelize para agendas, serviços e regras operacionais.',
+      ),
+      copy(
+        'Connected administrative dashboards, charts, days off and Google Calendar event handling.',
+        'Conectei dashboards administrativos, gráficos, folgas e tratamento de eventos do Google Calendar.',
+      ),
+    ],
+    architecture: [
+      {
+        label: copy('Customer experience', 'Experiência do cliente'),
+        value: copy('React + Vite + FullCalendar', 'React + Vite + FullCalendar'),
+      },
+      {
+        label: copy('Service authority', 'Autoridade do serviço'),
+        value: copy(
+          'Express routes · JWT · domain services',
+          'Rotas Express · JWT · serviços de domínio',
+        ),
+      },
+      {
+        label: copy('Persistence + integration', 'Persistência + integração'),
+        value: copy(
+          'MySQL · Sequelize · Google Calendar API',
+          'MySQL · Sequelize · Google Calendar API',
+        ),
+      },
+    ],
+    decisions: [
+      copy(
+        'Model services and schedules as relational server-side state.',
+        'Modelar serviços e agendamentos como estado relacional no servidor.',
+      ),
+      copy(
+        'Separate the customer booking journey from authenticated barber operations.',
+        'Separar a jornada de reserva do cliente da operação autenticada do barbeiro.',
+      ),
+      copy(
+        'Keep external calendar synchronization behind a dedicated service boundary.',
+        'Manter a sincronização com calendário externo atrás de uma fronteira de serviço dedicada.',
+      ),
+    ],
+    quality: [
+      copy(
+        'The backend includes Mocha integration-test structure, validation, migrations and seed data.',
+        'O backend inclui estrutura de testes de integração com Mocha, validação, migrations e dados iniciais.',
+      ),
+      copy(
+        'The current live URL is not claimed as operational because it did not respond reliably during this portfolio review.',
+        'A URL pública atual não é declarada operacional porque não respondeu com confiabilidade durante esta revisão do portfólio.',
+      ),
+    ],
+    evidence: [
+      copy(
+        'The public GitHub repository currently exposes the full-stack source and project documentation; the featured visuals are source-verified engineering views, not production screenshots.',
+        'O repositório público no GitHub expõe o código full stack e a documentação; os visuais em destaque são vistas de engenharia verificadas no código, não capturas de produção.',
+      ),
+    ],
+    accent: 'sand',
+  },
+  {
     slug: 'buildbalance',
     kind: 'independent',
     title: 'BuildBalance',
@@ -914,16 +1187,6 @@ export const additionalProjects: AdditionalProject[] = [
     flow: ['SESSION', 'REALTIME', 'RLS'],
   },
   {
-    title: 'TimeBubble',
-    summary: copy(
-      'A focused mobile timer with persistent device state, platform-aware foreground behavior, EAS builds and OTA delivery.',
-      'Um cronômetro mobile focado, com estado persistente no dispositivo, comportamento em primeiro plano por plataforma, builds EAS e entrega OTA.',
-    ),
-    stack: ['React Native', 'Expo 54', 'Reanimated', 'AsyncStorage', 'EAS'],
-    sourceUrl: 'https://github.com/JRaamos/time-bubble',
-    flow: ['TIMER', 'DEVICE', 'DELIVERY'],
-  },
-  {
     title: 'Congress Time',
     summary: copy(
       'A responsive schedule companion with browser-local persistence and portable JSON backup and restore.',
@@ -945,7 +1208,7 @@ export const experiences: ExperienceEntry[] = [
       'Production product work across web, mobile, backend, integrations, CRM and AI-assisted features.',
       'Trabalho em produtos de produção entre web, mobile, backend, integrações, CRM e funcionalidades assistidas por IA.',
     ),
-    stack: ['TypeScript', 'React', 'React Native', 'Node.js', 'CI/CD'],
+    stack: ['JavaScript', 'React', 'React Native', 'Node.js', 'TypeScript', 'CI/CD'],
   },
   {
     id: 'independent',
@@ -956,7 +1219,7 @@ export const experiences: ExperienceEntry[] = [
       'End-to-end product architecture and delivery for commerce, editorial automation, AI research and financial workflows.',
       'Arquitetura e entrega ponta a ponta para comércio, automação editorial, pesquisa com IA e fluxos financeiros.',
     ),
-    stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Docker', 'Playwright'],
+    stack: ['JavaScript', 'Next.js', 'Node.js', 'PostgreSQL', 'Docker', 'Playwright'],
   },
   {
     id: 'trybe',

@@ -50,7 +50,7 @@ export const labModes: LabModeDefinition[] = [
       en: 'React → API → Node.js → PostgreSQL',
       pt: 'React → API → Node.js → PostgreSQL',
     },
-    technologies: ['React 19', 'TypeScript', 'Next.js', 'REST APIs', 'Playwright'],
+    technologies: ['JavaScript', 'React 19', 'Next.js', 'TypeScript', 'REST APIs', 'Playwright'],
     scene: {
       id: 'lab-web',
       nodes: [
@@ -108,14 +108,14 @@ export const labModes: LabModeDefinition[] = [
       pt: 'A autoridade vive na fronteira de serviço.',
     },
     body: {
-      en: 'Typed routes lead to explicit domain rules, background work and durable data with authorization kept server-side.',
-      pt: 'Rotas tipadas levam a regras de domínio, trabalho assíncrono e dados duráveis com autorização no servidor.',
+      en: 'Validated routes lead to explicit domain rules, background work and durable data with authorization kept server-side.',
+      pt: 'Rotas validadas levam a regras de domínio, trabalho assíncrono e dados duráveis com autorização no servidor.',
     },
     principle: {
       en: 'REST → Node/NestJS → Jobs → PostgreSQL',
       pt: 'REST → Node/NestJS → Jobs → PostgreSQL',
     },
-    technologies: ['Node.js', 'NestJS', 'Express', 'Prisma', 'PostgreSQL'],
+    technologies: ['JavaScript', 'Node.js', 'Express', 'NestJS', 'Prisma', 'PostgreSQL'],
     scene: {
       id: 'lab-backend',
       nodes: [
@@ -180,7 +180,15 @@ export const labModes: LabModeDefinition[] = [
       en: 'Frontend → API → Integrations → Cloud → Delivery',
       pt: 'Frontend → API → Integrações → Cloud → Entrega',
     },
-    technologies: ['TypeScript', 'Docker', 'CI/CD', 'Provider adapters', 'PostgreSQL'],
+    technologies: [
+      'JavaScript',
+      'Node.js',
+      'TypeScript',
+      'Docker',
+      'CI/CD',
+      'Provider adapters',
+      'PostgreSQL',
+    ],
     scene: {
       id: 'lab-platform',
       nodes: [

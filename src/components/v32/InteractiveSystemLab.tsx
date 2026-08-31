@@ -3,6 +3,7 @@ import { siteCopy } from '../../content/portfolio';
 import { useLocale } from '../../context/useLocale';
 import { SignalCanvas } from './SignalCanvas';
 import { labModes } from './signalScenes';
+import { SignalNodeInspector } from '../v33/SignalNodeInspector';
 
 export function InteractiveSystemLab() {
   const { text, locale } = useLocale();
@@ -96,6 +97,7 @@ export function InteractiveSystemLab() {
             <span>POINTER VELOCITY + LOCAL ROUTING</span>
           </div>
           <SignalCanvas scene={activeMode.scene} variant="lab" className="system-lab-canvas-v32" />
+          <SignalNodeInspector scene={activeMode.scene} variant="lab" />
           <ol className="sr-only-v32" aria-label={activeMode.principle[locale]}>
             {activeMode.scene.nodes.map((node) => (
               <li key={node.id}>{node.label}</li>

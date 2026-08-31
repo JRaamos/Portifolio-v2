@@ -4,12 +4,21 @@ import { expect, test } from '@playwright/test';
 let pageErrors: string[];
 
 const viewports = [
+  { width: 320, height: 568 },
+  { width: 360, height: 640 },
+  { width: 375, height: 667 },
   { width: 390, height: 844 },
   { width: 430, height: 932 },
+  { width: 540, height: 720 },
   { width: 768, height: 1024 },
+  { width: 820, height: 1180 },
+  { width: 1024, height: 768 },
+  { width: 1280, height: 720 },
   { width: 1366, height: 768 },
   { width: 1440, height: 900 },
   { width: 1920, height: 1080 },
+  { width: 2560, height: 1440 },
+  { width: 3440, height: 1440 },
 ];
 
 test.beforeEach(async ({ page }) => {
@@ -35,7 +44,7 @@ test('renders without horizontal overflow across required breakpoints', async ({
 });
 
 test('switches language and keeps it after navigation', async ({ page }) => {
-  await page.getByRole('button', { name: 'PT' }).click();
+  await page.getByRole('button', { name: 'PT', exact: true }).click();
   await expect(page.getByText(/construo produtos entre web, backend, mobile e ia/i)).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
   await page.getByRole('link', { name: 'Projetos', exact: true }).click();
@@ -51,15 +60,175 @@ test('switches language and keeps it after navigation', async ({ page }) => {
 
 test('opens a case route, survives direct refresh and exposes safe evidence', async ({ page }) => {
   await page.goto('work/crypto-ai/');
-  await expect(page.getByRole('heading', { name: 'Crypto AI' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Crypto AI', level: 1 })).toBeVisible();
   await expect(page).toHaveTitle(/Crypto AI/);
   await expect(page.getByText(/never give the model execution authority/i)).toBeVisible();
   await expect(
     page.getByRole('img', { name: /crypto ai engineering architecture/i }),
   ).toBeVisible();
-  await expect(page.locator('.case-product-view-v31')).toHaveCount(2);
+  await expect(page.locator('.case-gallery-slide-v33')).toHaveCount(2);
+  await page.getByRole('button', { name: 'Next project image' }).click();
+  await expect(
+    page.getByRole('group', { name: /2 \/ 2 — architecture and guardrails/i }),
+  ).toHaveClass(/is-active/);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Crypto AI' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Crypto AI', level: 1 })).toBeVisible();
+});
+
+test('every exposed portfolio case resolves as a direct route', async ({ page }) => {
+  const caseUrls = await page
+    .locator('a[href*="/work/"]')
+    .evaluateAll((links) => [...new Set(links.map((link) => (link as HTMLAnchorElement).href))]);
+  expect(caseUrls.length).toBeGreaterThanOrEqual(9);
+
+  for (const caseUrl of caseUrls) {
+    await page.goto(caseUrl);
+    await expect(page.locator('.case-title-v31')).toBeVisible();
+    await expect(page.locator('.case-page-v31')).toHaveCount(1);
+  }
+});
+
+test('project reel keeps one project in focus and supports controls plus keyboard', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const reel = page.getByRole('region', { name: 'Independent projects' });
+  await reel.scrollIntoViewIfNeeded();
+
+  await expect(page.getByRole('heading', { name: 'Crypto AI', level: 3 })).toBeVisible();
+  await expect(page.locator('.project-slide-v33.is-active')).toHaveAttribute(
+    'aria-label',
+    /Crypto AI/,
+  );
+  await expect(page.locator('.project-slide-v33:not(.is-active)').first()).toHaveCSS(
+    'filter',
+    /blur\(5px\)/,
+  );
+
+  await page.getByRole('button', { name: 'Next project' }).click();
+  await expect(page.getByRole('heading', { name: 'TimeBubble', level: 3 })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open product case: TimeBubble' })).toHaveAttribute(
+    'href',
+    /\/work\/timebubble/,
+  );
+  await expect(
+    page.locator('.project-slide-v33.is-active .project-slide-v33__mobile-preview'),
+  ).toBeVisible();
+
+  await reel.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('heading', { name: 'FebraioTech', level: 3 })).toBeVisible();
+});
+
+test('hero scroll is natural and architecture nodes expose useful explanations', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const metrics = await page.locator('.hero-v31').evaluate((hero) => {
+    const stage = hero.querySelector<HTMLElement>('.hero-stage-v31');
+    return {
+      heroHeight: hero.getBoundingClientRect().height,
+      viewportHeight: window.innerHeight,
+      stagePosition: stage ? getComputedStyle(stage).position : null,
+    };
+  });
+  expect(metrics.heroHeight).toBeLessThanOrEqual(metrics.viewportHeight + 2);
+  expect(metrics.stagePosition).toBe('relative');
+
+  await expect(page.locator('.hero-architecture-v31 .signal-inspector-v33__note')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Explain MOBILE' }).hover();
+  await expect(page.getByText(/React Native journeys share service contracts/i)).toBeVisible();
+  const relation = await page.evaluate(() => {
+    const node = document.querySelector<HTMLElement>('button[aria-label="Explain MOBILE"]');
+    const note = document.querySelector<HTMLElement>(
+      '.hero-architecture-v31 .signal-inspector-v33__note',
+    );
+    if (!node || !note) return null;
+    const nodeRect = node.getBoundingClientRect();
+    const noteRect = note.getBoundingClientRect();
+    return {
+      distance: Math.hypot(
+        noteRect.left + noteRect.width / 2 - (nodeRect.left + nodeRect.width / 2),
+        noteRect.top + noteRect.height / 2 - (nodeRect.top + nodeRect.height / 2),
+      ),
+      architectureWidth:
+        document.querySelector<HTMLElement>('.hero-architecture-v31')?.getBoundingClientRect()
+          .width ?? 0,
+    };
+  });
+  expect(relation).not.toBeNull();
+  expect(relation!.distance).toBeLessThan(relation!.architectureWidth * 0.62);
+  await page.mouse.move(10, 10);
+  await expect(page.locator('.hero-architecture-v31 .signal-inspector-v33__note')).toHaveCount(0);
+});
+
+test('mobile architecture remains contained and opens local notes on tap', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  const metrics = await page.locator('.hero-architecture-v31').evaluate((architecture) => {
+    const rect = architecture.getBoundingClientRect();
+    return {
+      left: rect.left,
+      right: rect.right,
+      viewportWidth: window.innerWidth,
+      stageHeight: architecture.closest('.hero-stage-v31')?.getBoundingClientRect().height ?? 0,
+    };
+  });
+  expect(metrics.left).toBeGreaterThanOrEqual(0);
+  expect(metrics.right).toBeLessThanOrEqual(metrics.viewportWidth);
+  expect(metrics.stageHeight).toBeGreaterThanOrEqual(568);
+  await expect(page.locator('.hero-architecture-v31 .signal-inspector-v33__note')).toHaveCount(0);
+  await page.locator('.hero-architecture-v31').getByRole('button', { name: 'Explain API' }).click();
+  await expect(page.getByText(/contract boundary validates input/i)).toBeVisible();
+  const noteBounds = await page
+    .locator('.hero-architecture-v31 .signal-inspector-v33__note')
+    .boundingBox();
+  expect(noteBounds).not.toBeNull();
+  expect(noteBounds!.x).toBeGreaterThanOrEqual(0);
+  expect(noteBounds!.x + noteBounds!.width).toBeLessThanOrEqual(320);
+});
+
+test('new highlighted projects expose verified product and source evidence', async ({ page }) => {
+  await page.goto('work/timebubble/');
+  await expect(page.getByRole('heading', { name: 'TimeBubble', level: 1 })).toBeVisible();
+  await expect(page.locator('.case-gallery-slide-v33')).toHaveCount(3);
+  const publishedImage = page.locator('.case-gallery-slide-v33 img').first();
+  await expect(publishedImage).toBeVisible();
+  expect(
+    await publishedImage.evaluate((image) => (image as HTMLImageElement).naturalWidth),
+  ).toBeGreaterThanOrEqual(700);
+  await expect(page.getByRole('link', { name: /open live product/i })).toHaveAttribute(
+    'href',
+    /play\.google\.com\/store\/apps\/details\?id=br\.com\.jonathanfebraio\.timebubble/,
+  );
+  await expect(page.getByRole('link', { name: /inspect mobile source/i })).toHaveAttribute(
+    'href',
+    'https://github.com/JRaamos/time-bubble',
+  );
+
+  await page.setViewportSize({ width: 320, height: 568 });
+  const portraitMedia = page.locator('.case-gallery-slide-v33.is-active .case-gallery-slide-v33__media');
+  const portraitBounds = await portraitMedia.boundingBox();
+  expect(portraitBounds).not.toBeNull();
+  expect(portraitBounds!.height).toBeGreaterThan(portraitBounds!.width);
+
+  await page.goto('work/sistema-de-agendamento/');
+  await expect(
+    page.getByRole('heading', { name: 'Sistema de Agendamento', level: 1 }),
+  ).toBeVisible();
+  await expect(page.locator('.case-gallery-slide-v33')).toHaveCount(3);
+  await expect(page.getByRole('link', { name: /inspect source/i })).toHaveAttribute(
+    'href',
+    'https://github.com/JRaamos/Sistema-de-Agendamento',
+  );
+  const titleFit = await page.locator('.case-title-v31 span').evaluateAll((words) =>
+    words.every((word) => {
+      const element = word as HTMLElement;
+      const bounds = element.getBoundingClientRect();
+      return element.scrollWidth <= element.clientWidth + 1 && bounds.right <= window.innerWidth;
+    }),
+  );
+  expect(titleFit).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
 });
 
 test('mobile menu, external-link safety and touch targets work', async ({ page }) => {

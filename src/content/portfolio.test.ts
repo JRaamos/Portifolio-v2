@@ -13,7 +13,10 @@ describe('portfolio evidence model', () => {
 
   it('separates professional work from independent products', () => {
     expect(professionalCases.length).toBeGreaterThanOrEqual(3);
-    expect(independentCases).toHaveLength(4);
+    expect(independentCases.length).toBeGreaterThanOrEqual(6);
+    expect(independentCases.map((item) => item.slug)).toEqual(
+      expect.arrayContaining(['crypto-ai', 'timebubble', 'sistema-de-agendamento']),
+    );
     expect(professionalCases.every((item) => item.kind === 'professional')).toBe(true);
     expect(independentCases.every((item) => item.kind === 'independent')).toBe(true);
   });

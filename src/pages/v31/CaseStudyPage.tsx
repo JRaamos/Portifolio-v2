@@ -11,7 +11,7 @@ import {
   type ArchitectureScene,
 } from '../../components/v31/architecture';
 import { HeaderV32 } from '../../components/v32/HeaderV32';
-import { OptimizedImage } from '../../components/v31/OptimizedImage';
+import { CaseGalleryCarousel } from '../../components/v33/CaseGalleryCarousel';
 import { getWorkCase, siteCopy, workCases } from '../../content/portfolio';
 import { useLocale } from '../../context/useLocale';
 import { useDocumentMeta } from '../../hooks/useDocumentMeta';
@@ -193,37 +193,7 @@ export function CaseStudyPage() {
         </section>
 
         {productGallery.length ? (
-          <section
-            className="case-product-media-v31"
-            aria-labelledby="case-product-gallery-title-v31"
-          >
-            <header className="case-gallery-heading-v31">
-              <p id="case-product-gallery-title-v31">{text(siteCopy.case.gallery)}</p>
-              <span>{text(siteCopy.case.galleryNote)}</span>
-            </header>
-            <div className="case-product-gallery-v31">
-              {productGallery.map((item, index) => (
-                <figure
-                  className={
-                    index === 0 ? 'case-product-view-v31 is-primary' : 'case-product-view-v31'
-                  }
-                  key={item.src}
-                >
-                  <OptimizedImage
-                    src={item.src}
-                    alt={text(item.alt)}
-                    width={index === 0 ? 1425 : 1200}
-                    height={index === 0 ? 802 : 675}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                  />
-                  <figcaption>
-                    <span>0{index + 1}</span>
-                    {text(item.label)}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
+          <CaseGalleryCarousel title={work.title} gallery={productGallery} />
         ) : null}
 
         <section className="case-system-story-v31">
